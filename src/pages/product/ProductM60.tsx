@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 import LeadForm from "../../components/forms/LeadForm";
 import LiquidImage from "../../components/LiquidImage";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronRight, Activity, Cloud } from "lucide-react";
+import { CheckCircle2, ChevronRight, Activity, Cloud, Play } from "lucide-react";
 
 const ThreeCanvas = lazy(() => import("../../components/ThreeCanvas"));
 
@@ -130,7 +130,7 @@ export default function ProductM60({ product }: { product: Scanner }) {
 
        {/* 5. ECOSYSTEM & FORM */}
        <section className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="bg-brand-dark border-y border-t border-w border-white/10 p-16 flex flex-col justify-center">
+          <div className="bg-brand-dark border-y border-white/10 p-16 flex flex-col justify-center">
              <Cloud className="text-brand-accent w-16 h-16 mb-6" />
              <h2 className="text-3xl font-dot uppercase mb-4 text-white">Экосистема WellnessHub</h2>
              <p className="font-sans text-gray-400 leading-relaxed">

@@ -32,6 +32,7 @@ export default function ProductS30({ product }: { product: Scanner }) {
            </div>
            
            {/* RIGHT: Main Value */}
+           <div className="relative z-10 flex flex-col justify-center">
               <h1 className="text-5xl md:text-6xl font-sans font-bold tracking-tight mb-4 leading-none text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                  <span className="text-blue-200 bg-white/10 px-3 py-1 rounded inline-block mb-3 text-lg font-normal tracking-normal border border-blue-300/30">Visbody-S30</span><br/>
                  3D-Анализатор тела
