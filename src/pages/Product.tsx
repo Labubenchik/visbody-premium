@@ -1,9 +1,9 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getScannerById, Scanner } from "../services/db";
+import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, ShoppingCart, ChevronRight, Home as HomeIcon } from "lucide-react";
 
-// Lazy load the 3D Canvas and specialized product pages
 const ThreeCanvas = lazy(() => import("../components/ThreeCanvas"));
 const ProductM60 = lazy(() => import("./product/ProductM60"));
 const ProductS30 = lazy(() => import("./product/ProductS30"));
@@ -46,24 +46,6 @@ export default function Product() {
      return <div className="py-24 text-center font-dot text-2xl text-red-500 uppercase">SYSTEM ERROR. DEVICE NOT FOUND. <br/><Link to="/catalog" className="text-brand-accent underline mt-4 inline-block">RETURN TO CATALOG</Link></div>;
   }
 
-  const schemaData = product ? {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": product.name,
-    "image": [product.imageUrl],
-    "description": product.description,
-    "brand": {
-      "@type": "Brand",
-      "name": "Visbody"
-    },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "USD",
-      "price": product.price,
-      "availability": "https://schema.org/InStock"
-    }
-  } : null;
-
   const renderProductContent = () => {
     if (!product) return null;
     const pid = product.id.toLowerCase();
@@ -84,14 +66,12 @@ export default function Product() {
       );
     }
 
-    // Default detailed view for other products (R60, Explorer, S20)
     return (
       <div className="glass-card rounded-none p-6 md:p-12 border border-white/10 relative">
         <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-brand-accent z-20"></div>
         <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-brand-accent z-20"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side: Lazy Loaded 3D Canvas */}
             <div className="h-[400px] lg:h-[600px] w-full bg-brand-dark/80 border border-white/5 relative overflow-hidden flex items-center justify-center">
                 <div className="absolute inset-0 z-0 opacity-20 nothing-dot-grid"></div>
                 <Suspense fallback={<div className="text-brand-accent animate-pulse font-dot text-2xl uppercase">Initializing 3D Core...</div>}>
@@ -99,18 +79,13 @@ export default function Product() {
                 </Suspense>
             </div>
 
-            {/* Right side: Product Data */}
             <div className="bg-brand-dark/60 p-8 border-l border-white/10">
                <div className="font-dot text-brand-accent mb-2 uppercase tracking-widest text-sm">// SYSTEM DIAGNOSTICS //</div>
                <h1 className="text-4xl md:text-6xl font-dot uppercase mb-4 text-white tracking-wider">{product.name}</h1>
                <div className="text-4xl font-dot text-brand-accent mb-8 drop-shadow-[0_0_10px_rgba(255,0,21,0.5)]">
                   ${new Intl.NumberFormat('en-US').format(product.price)}
                </div>
-               
-               <p className="text-lg text-gray-300 mb-10 leading-relaxed font-light">
-                  {product.description}
-               </p>
-
+               <p className="text-lg text-gray-300 mb-10 leading-relaxed font-light">{product.description}</p>
                <div className="mb-10">
                   <h3 className="font-dot uppercase tracking-wider text-gray-500 text-lg mb-4">Core Specifications</h3>
                   <ul className="space-y-4 font-sans font-light text-gray-300">
@@ -120,12 +95,10 @@ export default function Product() {
                            {f}
                         </li>
                      ))}
-                  </ul>
-               </div>
-
+                   </ul>
+                </div>
                <button onClick={() => alert('Initiating order sequence...')} className="w-full md:w-auto flex items-center justify-center gap-3 bg-white hover:bg-brand-accent text-black hover:text-white font-dot uppercase tracking-widest text-xl py-4 px-10 transition-all border border-transparent hover:border-brand-accent">
-                  <ShoppingCart size={22} />
-                  Запросить КП
+                  <ShoppingCart size={22} /> Запросить КП
                </button>
             </div>
         </div>
@@ -134,17 +107,7 @@ export default function Product() {
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="py-8 relative z-10"
-    >
-      {schemaData && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
-      )}
-      
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="py-8 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs name={product?.name || "Загрузка..."} />
         {renderProductContent()}
