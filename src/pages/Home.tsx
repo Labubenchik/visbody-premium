@@ -29,7 +29,6 @@ export default function Home() {
                  loop 
                  muted 
                  playsInline 
-                 className="w-full h-full object-contain mix-blend-lighten scale-150 filter brightness-125 contrast-125 opacity-60"
                  className="w-full h-full object-contain mix-blend-screen scale-150 filter brightness-125 contrast-125 opacity-60"
                />
                <ScanningHUD />
@@ -103,7 +102,6 @@ export default function Home() {
             </div>
          </section>
 
-         {/* 4. VALUE METRICS */}
          <section className="mb-32 grid grid-cols-1 md:grid-cols-2 gap-12 bg-slate-900/40 border border-white/5 rounded-[48px] p-16 relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-full nothing-dot-grid opacity-30"></div>
              <div className="relative z-10">
@@ -118,7 +116,6 @@ export default function Home() {
              </div>
          </section>
 
-          {/* 5. HOW IT WORKS */}
           <section className="mb-32 text-center">
              <h3 className="text-center font-sans font-extrabold text-[10px] uppercase tracking-[0.4em] text-slate-500 mb-16">// THE PROCESS</h3>
              <div className="flex flex-col md:flex-row justify-center items-center gap-8 relative">
@@ -138,7 +135,6 @@ export default function Home() {
              </div>
           </section>
 
-          {/* 6. SHORT CASE & ROI */}
           <section className="mb-24">
              <div className="bg-brand-accent/5 border-l-4 border-brand-accent rounded-r-[32px] p-12 mb-16 max-w-4xl mx-auto shadow-sm backdrop-blur-md">
                 <p className="font-sans text-xl text-slate-300 italic mb-6 leading-relaxed">"После установки Visbody M60, продажи пакетов персональных тренировок в нашем клубе выросли на 30% всего за два месяца. Это лучший инструмент для тренера."</p>
