@@ -1,130 +1,16 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Activity, Building2, Dumbbell, ShieldCheck, Play, ArrowRight } from "lucide-react";
-import RoiCalculator from "../components/forms/RoiCalculator";
-import { Suspense, lazy } from "react";
-import ScanningHUD from "../components/hud/ScanningHUD";
-
-const ThreeCanvas = lazy(() => import("../components/ThreeCanvas"));
+import { Activity, Building2, Dumbbell, ShieldCheck } from "lucide-react";
+import RoiCalculator from "../../components/forms/RoiCalculator";
+import HeroSection from "./components/HeroSection";
 
 export default function Home() {
 	return (
-		<div className="relative bg-transparent text-white font-sans overflow-x-hidden selection:bg-brand-accent/20">
+		<div className="relative bg-transparent text-white font-sans overflow-x-hidden selection:bg-brand-accent/20 max-md:-ml-6 max-md:-mr-6">
 			{/* Dynamic Background Glows for Dark Theme */}
 			<div className="absolute top-0 right-1/4 w-[800px] h-[800px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none"></div>
 			<div className="absolute bottom-0 left-1/4 w-[800px] h-[800px] bg-cyan-400/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-			{/* 1. HERO SECTION */}
-			<section className="relative min-h-[100vh] flex flex-col items-center justify-center pt-24 mb-12 overflow-hidden">
-				{/* Background AI Video Avatar (Light Mode Blending) */}
-				<div className="absolute inset-0 z-0 flex items-center justify-center opacity-40">
-					{/* Soft Floating Rings */}
-					<div className="absolute w-[800px] h-[800px] rounded-full border border-blue-100/50 animate-[spin_40s_linear_infinite]"></div>
-					<div className="absolute w-[600px] h-[600px] rounded-full border border-cyan-100/50 animate-[spin_25s_linear_infinite_reverse]"></div>
-
-					<div className="relative w-full h-full mx-auto flex items-center justify-center">
-						<video
-							src="/avatar_scan.mp4"
-							autoPlay
-							loop
-							muted
-							playsInline
-							className="w-full h-full object-cover object-[50%_20%] mix-blend-screen filter brightness-125 contrast-125 opacity-60"
-						/>
-						<ScanningHUD />
-						<div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#0a1930]/40 pointer-events-none" />
-					</div>
-				</div>
-
-				<div className="relative z-10 text-center max-w-4xl px-4">
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						className="inline-block bg-blue-500/10 text-brand-accent px-5 py-2 rounded-full font-sans text-[10px] font-extrabold uppercase mb-8 tracking-[0.2em] border border-blue-400/20 shadow-sm backdrop-blur-md"
-					>
-						Global Leader in 3D Body Scanning
-					</motion.div>
-					<motion.h1
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.1 }}
-						className="text-6xl md:text-9xl font-sans font-extrabold uppercase tracking-tighter mb-8 leading-[0.85] text-white"
-					>
-						Digital{" "}
-						<span className="text-transparent bg-clip-text bg-gradient-to-br from-brand-accent to-blue-400">
-							Health
-						</span>
-						<br />
-						Engine.
-					</motion.h1>
-					<motion.p
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.2 }}
-						className="text-xl md:text-2xl font-sans text-slate-300 max-w-2xl mx-auto tracking-tight leading-relaxed opacity-80"
-					>
-						Visbody — ИИ-аналитика состава тела для самых прогрессивных фитнес-клубов и клиник.
-					</motion.p>
-				</div>
-
-				<div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mt-24 px-4 pb-20">
-					<motion.div
-						initial={{ opacity: 0, x: -30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						transition={{ delay: 0.3 }}
-						className="glass-card glass-card-hover p-12 bg-white/5 border border-white/10 group"
-					>
-						<div className="flex justify-between items-start mb-10">
-							<div>
-								<h2 className="text-4xl font-sans font-extrabold uppercase tracking-tight text-white mb-2">
-									Visbody M60
-								</h2>
-								<p className="text-slate-400 font-sans text-xs font-bold uppercase tracking-[0.3em]">
-									Premium Mirror System
-								</p>
-							</div>
-							<div className="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-brand-accent shadow-inner">
-								<ShieldCheck size={32} />
-							</div>
-						</div>
-						<Link
-							to="/product/visbody-m60"
-							className="inline-flex items-center gap-3 bg-white text-slate-900 font-sans font-extrabold uppercase tracking-widest text-xs py-4 px-8 rounded-2xl hover:bg-brand-accent hover:text-white transition-all shadow-xl"
-						>
-							Подробнее <ArrowRight size={18} />
-						</Link>
-					</motion.div>
-
-					<motion.div
-						initial={{ opacity: 0, x: 30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						transition={{ delay: 0.4 }}
-						className="glass-card glass-card-hover p-12 bg-white/5 border border-white/10 group"
-					>
-						<div className="flex justify-between items-start mb-10">
-							<div>
-								<h2 className="text-4xl font-sans font-extrabold uppercase tracking-tight text-white mb-2">
-									Visbody S30
-								</h2>
-								<p className="text-slate-400 font-sans text-xs font-bold uppercase tracking-[0.3em]">
-									Hybrid Analysis System
-								</p>
-							</div>
-							<div className="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-brand-accent shadow-inner">
-								<Dumbbell size={32} />
-							</div>
-						</div>
-						<Link
-							to="/product/visbody-s30"
-							className="inline-flex items-center gap-3 bg-white text-slate-900 font-sans font-extrabold uppercase tracking-widest text-xs py-4 px-8 rounded-2xl hover:bg-brand-accent hover:text-white transition-all shadow-xl"
-						>
-							Подробнее <ArrowRight size={18} />
-						</Link>
-					</motion.div>
-				</div>
-			</section>
+			{/* 1. hero section */}
+			<HeroSection />
 
 			<div className="mt-48 mb-32 max-w-7xl mx-auto px-4">
 				{/* 3. TARGET AUDIENCE */}
