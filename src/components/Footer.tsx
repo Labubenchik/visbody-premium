@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { CONTACT_DATA } from "../static-data";
 
 export default function Footer() {
 	return (
@@ -113,15 +114,17 @@ export default function Footer() {
 						<div className="space-y-4 text-sm text-gray-500 font-sans">
 							<div className="flex items-center gap-3">
 								<Phone size={16} className="text-brand-accent" />
-								<span>+7 (495) 000-00-00</span>
+								<a href={CONTACT_DATA.PHONE.LINK}>{CONTACT_DATA.PHONE.TEXT}</a>
 							</div>
 							<div className="flex items-center gap-3">
 								<Mail size={16} className="text-brand-accent" />
-								<span>info@visbody.ru</span>
+								<a href={CONTACT_DATA.EMAIL.LINK}>{CONTACT_DATA.EMAIL.TEXT}</a>
 							</div>
 							<div className="flex items-start gap-3">
 								<MapPin size={16} className="text-brand-accent mt-1" />
-								<span>Москва, Бережковская наб., 20</span>
+								<a href={CONTACT_DATA.ADDRESS.LINK} target="_blank">
+									{CONTACT_DATA.ADDRESS.TEXT}
+								</a>
 							</div>
 						</div>
 					</div>

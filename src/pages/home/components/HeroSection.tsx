@@ -15,24 +15,24 @@ export default function HeroSection() {
 			title: "Visbody S30",
 			subtitle: "Premium Mirror System",
 			linkTo: "/product/visbody-m30",
-			imageUrl: "/images/m60.webp",
+			imageUrl: "/images/S-30.webp",
 		},
 		{
 			title: "Visbody М30",
 			subtitle: "Premium Mirror System",
 			linkTo: "/product/visbody-m30",
-			imageUrl: "/images/m60.webp",
+			imageUrl: "/images/M-30.webp",
 		},
 		{
 			title: "Creator A600",
 			subtitle: "Premium Mirror System",
 			linkTo: "/product/visbody-m30",
-			imageUrl: "/images/m60.webp",
+			imageUrl: "/images/Creator_A600.webp",
 		},
 	];
 
 	return (
-		<section className="relative min-h-[100vh] flex flex-col items-center justify-center pt-24 mb-12 overflow-hidden">
+		<section className="relative min-h-[100vh] flex flex-col items-center justify-center pt-12 mb-12 overflow-hidden">
 			{/* Background AI Video Avatar (Light Mode Blending) */}
 			<div className="absolute inset-0 z-0 flex items-center justify-center opacity-40">
 				{/* Soft Floating Rings */}
@@ -53,35 +53,19 @@ export default function HeroSection() {
 				</div>
 			</div>
 
-			<div className="relative z-10 text-center max-w-4xl px-4">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					className="inline-block bg-blue-500/10 text-brand-accent px-5 py-2 rounded-full font-sans text-[10px] font-extrabold uppercase mb-8 tracking-[0.2em] border border-blue-400/20 shadow-sm backdrop-blur-md"
-				>
-					Global Leader in 3D Body Scanning
-				</motion.div>
+			<div className="relative z-10 w-full mb-auto px-12">
 				<motion.h1
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.1 }}
-					className="text-6xl md:text-9xl font-sans font-extrabold uppercase tracking-tighter mb-8 leading-[0.85] text-white"
+					className="text-4xl max-md:text-3xl font-sans font-extrabold uppercase tracking-[0.025em] leading-[1.2] text-white mb-2 w-full max-w-[30rem]"
 				>
-					Digital{" "}
+					Мировой лидер <br />
 					<span className="text-transparent bg-clip-text bg-gradient-to-br from-brand-accent to-blue-400">
-						Health
+						AI-решений&#32;
 					</span>
-					<br />
-					Engine.
+					для комплексной диагностики тела
 				</motion.h1>
-				<motion.p
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.2 }}
-					className="text-xl md:text-2xl font-sans text-slate-300 max-w-2xl mx-auto tracking-tight leading-relaxed opacity-80"
-				>
-					Visbody — ИИ-аналитика состава тела для самых прогрессивных фитнес-клубов и клиник.
-				</motion.p>
 			</div>
 
 			<div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mt-24 px-4 pb-20">
@@ -104,7 +88,7 @@ export default function HeroSection() {
 					</div>
 					<img
 						className="mx-auto max-md:max-w-[360px] w-full"
-						src="/images/m60.webp"
+						src="/images/М-60.webp"
 						width="460"
 						height="460"
 						alt="Visbody M60"
@@ -121,7 +105,7 @@ export default function HeroSection() {
 					</Link>
 				</motion.div>
 
-				{cardList.map(({ title, subtitle, linkTo }) => (
+				{cardList.map(({ title, subtitle, linkTo, imageUrl }) => (
 					<motion.div
 						initial={{ opacity: 0, x: -30 }}
 						whileInView={{ opacity: 1, x: 0 }}
@@ -141,10 +125,10 @@ export default function HeroSection() {
 						</div>
 						<img
 							className="absolute z-10 top-0 -right-10 max-lg:-right-16"
-							src="/images/m60.webp"
+							src={imageUrl}
 							width="260"
 							height="260"
-							alt="Visbody M60"
+							alt={title}
 						/>
 
 						<Link
