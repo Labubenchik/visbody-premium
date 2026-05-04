@@ -1,14 +1,14 @@
 export const CONTACT_DATA = {
 	PHONE: {
-		TEXT: "+7 495 108 05 35",
-		LINK: "tel:+74951080535",
+		TEXT: "+7 499 677 56 32",
+		LINK: "tel:+74996775632",
 	},
 	EMAIL: {
-		TEXT: "info@wellfitness.pro",
-		LINK: "mailto:info@wellfitness.pro",
+		TEXT: "Info@wellfitness.ru",
+		LINK: "mailto:Info@wellfitness.ru",
 	},
 	ADDRESS: {
-		TEXT: "г. Москва, ул. Пушкинская, д. 1",
+		TEXT: "Москва, ул. Маршала Прошлякова, д. 30, офис 407",
 		LINK: "#",
 	},
 } as const;

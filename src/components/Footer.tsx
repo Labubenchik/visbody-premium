@@ -9,9 +9,9 @@ export default function Footer() {
 			<div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent/5 blur-[120px] rounded-full pointer-events-none"></div>
 
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
 					{/* Brand Col */}
-					<div className="space-y-6">
+					{/* <div className="space-y-6">
 						<Link
 							to="/"
 							className="flex overflow-hidden items-center gap-3 text-2xl font-dot tracking-tighter uppercase group"
@@ -42,7 +42,7 @@ export default function Footer() {
 								<Linkedin size={18} />
 							</a>
 						</div>
-					</div>
+					</div> */}
 
 					{/* Navigation */}
 					<div>
@@ -87,7 +87,7 @@ export default function Footer() {
 							</li>
 							<li>
 								<Link to="/contact" className="hover:text-brand-accent transition-colors">
-									Контакты
+									Связаться с нами
 								</Link>
 							</li>
 							<li>
@@ -98,11 +98,6 @@ export default function Footer() {
 							<li>
 								<a href="#" className="hover:text-brand-accent transition-colors">
 									Документация
-								</a>
-							</li>
-							<li>
-								<a href="#" className="hover:text-brand-accent transition-colors">
-									Стать дилером
 								</a>
 							</li>
 						</ul>
