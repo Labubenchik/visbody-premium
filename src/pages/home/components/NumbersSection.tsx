@@ -10,7 +10,7 @@ export default function NumbersSection() {
 					Рост выручки
 				</div>
 				<p className="font-sans text-slate-400 mt-6 leading-relaxed text-lg opacity-80">
-					Внедрение 3D-аналитики напрямую конвертирует базовых клиентов в покупателей персональных тренировок.
+					Внедрение 3D-аналитики напрямую конвертирует новых клиентов в постоянных.
 				</p>
 			</div>
 			<div className="relative z-10">
@@ -21,7 +21,7 @@ export default function NumbersSection() {
 					Удержание (LTV)
 				</div>
 				<p className="font-sans text-slate-400 mt-6 leading-relaxed text-lg opacity-80">
-					Регулярный миллиметровый трекинг мотивирует не бросать занятия — результат виден сразу.
+					Регулярный трекинг позволяет хранить статистику по пользователю и мотивирует клиентов.
 				</p>
 			</div>
 		</section>

@@ -1,4 +1,10 @@
 import { useState } from "react";
+import Select from "../ui/Select";
+
+const businessTypeOptions = [
+	{ value: "fitness", label: "Фитнес-клуб / Студия (S30)" },
+	{ value: "clinic", label: "Медицинская клиника (R60)" },
+];
 
 export default function RoiCalculator() {
 	const [clients, setClients] = useState(100);
@@ -11,7 +17,7 @@ export default function RoiCalculator() {
 
 	return (
 		<div className="glass-card p-8 border border-brand-accent/30 relative">
-			<div className="absolute top-0 right-0 bg-brand-accent text-white font-dot text-xs px-3 py-1 uppercase">
+			<div className="absolute top-0 right-0 bg-brand-accent text-white font-dot text-xs px-4 py-2 rounded-tr-3xl rounded-bl-lg uppercase">
 				Калькулятор
 			</div>
 			<h3 className="text-3xl font-dot uppercase tracking-wider text-white mb-6">
@@ -24,14 +30,7 @@ export default function RoiCalculator() {
 						<label className="block text-gray-400 font-sans text-sm uppercase tracking-wide mb-2">
 							Тип бизнеса
 						</label>
-						<select
-							value={type}
-							onChange={(e) => setType(e.target.value)}
-							className="w-full bg-brand-dark border border-white/10 p-3 text-white focus:outline-none focus:border-brand-accent"
-						>
-							<option value="fitness">Фитнес-клуб / Студия (S30)</option>
-							<option value="clinic">Медицинская клиника (R60)</option>
-						</select>
+						<Select value={type} onChange={(e) => setType(e.target.value)} options={businessTypeOptions} />
 					</div>
 
 					<div>
@@ -67,15 +66,14 @@ export default function RoiCalculator() {
 					</div>
 				</div>
 
-				<div className="flex flex-col justify-center items-center bg-black/40 border border-white/5 p-6 text-center">
+				<div className="flex flex-col justify-center items-center bg-black/40 border border-white/5 p-6 rounded-3xl text-center">
 					<h4 className="text-gray-400 font-dot uppercase tracking-widest text-sm mb-4">
 						Ожидаемая окупаемость:
 					</h4>
-					<div className="text-7xl font-dot text-brand-accent mb-2">{roiMonths}</div>
-					<div className="text-xl text-white font-sans font-light uppercase tracking-wide">Месяцев</div>
-					<p className="text-xs text-gray-500 mt-6 max-w-[200px] leading-relaxed">
-						*Расчет основан на среднем увеличении конверсии в доп. продажи на 30% после внедрения
-						3D-скрининга.
+					<div className="text-7xl font-dot text-brand-accent mb-2 mt-2">{roiMonths}</div>
+					<div className="text-xl text-white font-sans font-light uppercase tracking-wide mb-3">Месяцев</div>
+					<p className="text-xs text-gray-500 mt-auto max-w-[260px] leading-relaxed">
+						*при условии подключения услуги сканирования к каждому активному клиенту
 					</p>
 				</div>
 			</div>

@@ -1,9 +1,9 @@
 import RoiCalculator from "../../components/forms/RoiCalculator";
-import AdvantagesList from "./components/AdvantagesList";
+// import AdvantagesList from "./components/AdvantagesList";
+// import TargetAudience from "./components/TargetAudience";
 import HeroSection from "./components/HeroSection";
 import NumbersSection from "./components/NumbersSection";
 import Quote from "./components/Quote";
-import TargetAudience from "./components/TargetAudience";
 
 export default function Home() {
 	return (
@@ -15,11 +15,11 @@ export default function Home() {
 			<HeroSection />
 
 			<div className="mt-28 mb-28 max-w-7xl mx-auto px-4">
-				<TargetAudience />
+				{/* <TargetAudience /> */}
 
 				<NumbersSection />
 
-				<AdvantagesList />
+				{/* <AdvantagesList /> */}
 
 				<section className="mb-24">
 					<Quote />
