@@ -24,7 +24,7 @@ export default function Home() {
 				<section className="mb-24">
 					<Quote />
 
-					<div className="glass-card p-12 bg-white/5 border border-white/10">
+					<div className="glass-card p-3 md:p-12 max-md:rounded-[2.7rem] bg-white/5 border border-white/10">
 						<RoiCalculator />
 					</div>
 				</section>

@@ -16,7 +16,7 @@ export default function RoiCalculator() {
 	const roiMonths = Math.ceil(machineCost / extraRevenue);
 
 	return (
-		<div className="glass-card p-8 border border-brand-accent/30 relative">
+		<div className="glass-card p-5 md:p-8 border border-brand-accent/30 relative">
 			<div className="absolute top-0 right-0 bg-brand-accent text-white font-dot text-xs px-4 py-2 rounded-tr-3xl rounded-bl-lg uppercase">
 				Калькулятор
 			</div>
