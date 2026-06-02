@@ -1,0 +1,168 @@
+---
+type SpecRow = {
+	label: string;
+	value: string;
+};
+
+type Props = {
+	specs?: SpecRow[];
+};
+
+const { specs = [{ label: "Цвет устройства", value: "Чёрный / Белый" }] } = Astro.props as Props;
+---
+
+<section class="specs-section bg-gradient-2 fade-up" id="tech">
+	<div class="container">
+		<h2 class="section-title">
+			<slot name="title" />
+		</h2>
+		<p class="section-subtitle"><slot name="subtitle" /></p>
+		<div class="table-wrap">
+			<table class="specs-table">
+				<tbody>
+					{
+						specs.map(({ label, value }) => (
+							<tr>
+								<td class="specs-label">{label}</td>
+								<td>{value}</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+
+<style>
+	.specs-section {
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		padding: 96px 24px 112px;
+	}
+
+	.bg-gradient-2 {
+		background:
+			linear-gradient(135deg, rgba(2, 8, 23, 0.22) 0%, rgba(7, 20, 46, 0.38) 100%),
+			radial-gradient(circle at 88% 18%, rgba(96, 165, 250, 0.1), transparent 34%);
+	}
+
+	.container {
+		width: min(100%, 1200px);
+		margin: 0 auto;
+	}
+
+	.section-title {
+		max-width: 860px;
+		margin: 0 auto 20px;
+		color: #ffffff;
+		font-family: var(--font-sans);
+		font-size: clamp(38px, 5vw, 52px);
+		font-weight: 800;
+		line-height: 1.03;
+		letter-spacing: -0.045em;
+		text-align: center;
+		text-transform: uppercase;
+
+		& > :global(.title-accent) {
+			letter-spacing: -0.025em;
+		}
+	}
+
+	.section-subtitle {
+		max-width: 720px;
+		margin: 0 auto 56px;
+		color: #cbd5e1;
+		font-family: var(--font-sans);
+		font-size: 18px;
+		line-height: 1.6;
+		letter-spacing: -0.015em;
+		text-align: center;
+		opacity: 0.82;
+	}
+
+	.table-wrap {
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.07);
+		border-radius: 32px;
+		background: rgba(15, 23, 42, 0.42);
+		box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+		backdrop-filter: blur(24px);
+		-webkit-backdrop-filter: blur(24px);
+	}
+
+	.specs-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-family: var(--font-sans);
+	}
+
+	.specs-table tr {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+	}
+
+	.specs-table tr:last-child {
+		border-bottom: 0;
+	}
+
+	.specs-table td {
+		padding: 19px 24px;
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: 450;
+		line-height: 1.5;
+		letter-spacing: -0.01em;
+		vertical-align: top;
+	}
+
+	.specs-table .specs-label {
+		width: 40%;
+		color: #94a3b8;
+	}
+
+	@media (max-width: 992px) {
+		.specs-section {
+			padding: 76px 20px 92px;
+		}
+	}
+
+	@media (max-width: 680px) {
+		.specs-section {
+			padding-inline: 16px;
+		}
+
+		.section-title {
+			font-size: 34px;
+		}
+
+		.section-subtitle {
+			margin-bottom: 36px;
+			font-size: 16px;
+		}
+
+		.table-wrap {
+			border-radius: 24px;
+		}
+
+		.specs-table tr {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 6px;
+			padding: 18px 20px;
+		}
+
+		.specs-table td {
+			display: block;
+			padding: 0;
+			font-size: 15px;
+		}
+
+		.specs-table .specs-label {
+			width: auto;
+			font-size: 13px;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+		}
+	}
+</style>

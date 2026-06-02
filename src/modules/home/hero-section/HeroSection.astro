@@ -1,0 +1,153 @@
+---
+import { ArrowRight } from "@lucide/astro";
+import ScanningHUD from "./components/ScanningHUD";
+
+import avatarScanWebm from "./assets/avatar_scan.webm";
+import avatarScanMp4 from "./assets/avatar_scan.mp4";
+import m60 from "./assets/m-60.webp";
+import s30 from "./assets/s-30.webp";
+import m30 from "./assets/m-30.webp";
+import a60 from "./assets/creator-A600.webp";
+import { ROUTES } from "@/static-data";
+
+type CardItem = {
+	title: string;
+	subtitle: string;
+	linkTo: string;
+	imageUrl?: string;
+};
+
+const cardList: CardItem[] = [
+	{
+		title: "Visbody S30",
+		subtitle: "Premium Mirror System",
+		linkTo: ROUTES.catalog.сhildren.s30.href,
+		imageUrl: s30.src,
+	},
+	{
+		title: "Visbody М30",
+		subtitle: "Premium Mirror System",
+		linkTo: ROUTES.catalog.сhildren.m30.href,
+		imageUrl: m30.src,
+	},
+	{
+		title: "Creator A600",
+		subtitle: "Premium Mirror System",
+		linkTo: ROUTES.catalog.сhildren.a600.href,
+		imageUrl: a60.src,
+	},
+];
+---
+
+<section class="relative min-h-[100vh] flex flex-col items-center justify-center pt-12 mb-12 overflow-hidden">
+	<div class="absolute inset-0 z-0 flex items-center justify-center opacity-40">
+		<div
+			class="absolute w-[800px] h-[800px] rounded-full border border-blue-100/50 animate-[spin_40s_linear_infinite]">
+		</div>
+		<div
+			class="absolute w-[600px] h-[600px] rounded-full border border-cyan-100/50 animate-[spin_25s_linear_infinite_reverse]">
+		</div>
+
+		<div class="hero-visual-mask relative w-full h-full mx-auto flex items-center justify-center">
+			<video
+				autoplay
+				loop
+				muted
+				playsinline
+				preload="auto"
+				class="w-full h-full object-cover object-[50%_20%] mix-blend-screen filter brightness-125 contrast-125 opacity-60">
+				<source src={avatarScanWebm} type="video/webm" />
+				<source src={avatarScanMp4} type="video/mp4" />
+			</video>
+			<ScanningHUD client:only="react" />
+			<div
+				class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#0a1930]/40 pointer-events-none">
+			</div>
+		</div>
+	</div>
+
+	<div class="relative z-10 w-full mb-auto px-12">
+		<h1
+			class="text-4xl max-md:text-3xl font-sans font-extrabold uppercase tracking-[0.025em] leading-[1.2] text-white mb-2 w-full max-w-[30rem]">
+			Мировой лидер <br />
+			<span class="text-transparent bg-clip-text bg-gradient-to-br from-brand-accent to-blue-400">
+				AI-решений&#32;
+			</span>
+			для комплексной диагностики тела
+		</h1>
+	</div>
+
+	<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mt-24 px-4 pb-20">
+		<div
+			class="backdrop-blur-xl flex flex-col items-start md:col-start-2 md:-col-end-1 md:row-start-1 md:row-end-4 glass-card glass-card-hover md:p-12 p-6 bg-white/5 border border-white/10 group">
+			<div class="flex justify-between items-start mb-7">
+				<div>
+					<h2
+						class="text-4xl max-md:text-3xl font-sans font-extrabold uppercase tracking-tight text-white mb-2">
+						Visbody M60
+					</h2>
+					<p class="text-slate-400 font-sans text-xs font-bold uppercase tracking-[0.3em]">
+						Premium Mirror System
+					</p>
+				</div>
+			</div>
+			<img class="mx-auto max-md:max-w-[360px] w-full" src={m60.src} width="460" height="460" alt="Visbody M60" />
+			<p class="text-slate-300 font-sans text-sm mt-6 mb-6">
+				Visbody M60 — это инновационная система мониторинга состава тела, которая позволяет в реальном времени
+				отслеживать состав вашего тела и предоставляет полезную информацию о его состоянии.
+			</p>
+			<a
+				href={ROUTES.catalog.сhildren.m60.href}
+				class="mt-auto inline-flex items-center gap-3 bg-white text-slate-900 font-sans font-extrabold uppercase tracking-widest text-xs py-4 px-8 rounded-2xl hover:bg-brand-accent hover:text-white transition-all shadow-xl">
+				Подробнее <ArrowRight size={18} />
+			</a>
+		</div>
+
+		{
+			cardList.map(({ title, subtitle, linkTo, imageUrl }) => (
+				<div class="backdrop-blur-xl relative overflow-hidden glass-card glass-card-hover sm:p-12 p-6 bg-white/5 border border-white/10 group">
+					<div class="relative z-30 flex justify-between items-start mb-10">
+						<div>
+							<h2 class="text-4xl max-md:text-3xl font-sans font-extrabold uppercase tracking-tight text-white mb-2">
+								{title}
+							</h2>
+							<p class="text-slate-400 font-sans text-xs font-bold uppercase sm:tracking-[0.3em]">
+								{subtitle}
+							</p>
+						</div>
+					</div>
+					<img
+						class="absolute z-10 top-0 -right-10 max-lg:-right-16"
+						src={imageUrl}
+						width="260"
+						height="260"
+						alt={title}
+					/>
+
+					<a
+						href={linkTo}
+						class="relative z-30 inline-flex items-center gap-3 bg-white text-slate-900 font-sans font-extrabold uppercase tracking-widest text-xs py-4 px-8 rounded-2xl hover:bg-brand-accent hover:text-white transition-all shadow-xl">
+						Подробнее <ArrowRight size={18} />
+					</a>
+				</div>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.hero-visual-mask {
+		mask-image:
+			linear-gradient(to right, transparent 0%, #000 14%, #000 80%, transparent 100%),
+			linear-gradient(to bottom, transparent 0%, #000 10%, #000 80%, transparent 100%);
+		mask-composite: intersect;
+	}
+
+	@media (max-width: 768px) {
+		/* .hero-visual-mask {
+			mask-image:
+				linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%),
+				linear-gradient(to bottom, transparent 0%, #000 10%, #000 76%, transparent 100%);
+		} */
+	}
+</style>

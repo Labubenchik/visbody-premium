@@ -1,0 +1,203 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import ProductCompare from "@modules/product/ProductCompare.astro";
+import ProductFeatures from "@modules/product/ProductFeatures.astro";
+import ProductHead from "@modules/product/ProductHead.astro";
+import ProductLeadSection from "@modules/product/ProductLeadSection.astro";
+import ProductSpecs from "@modules/product/ProductSpecs.astro";
+import ProductTechItems from "@modules/product/components/ProductTechItems.astro";
+import ProductTechVisual from "@modules/product/components/ProductTechVisual.astro";
+import SplitSection from "@/modules/split-section/SplitSection.astro";
+import SplitContent from "@/modules/split-section/components/SplitContent.astro";
+
+import m30Image from "@modules/home/hero-section/assets/m-30.webp";
+---
+
+<Layout>
+	<ProductHead
+		primaryAction={{ label: "Узнать цену", href: "#lead-form", id: "priceBtnM60" }}
+		secondaryAction={{ label: "Узнать технологии", href: "#tech", withArrow: true }}
+		imageSrc={m30Image.src}
+		imageAlt="Visbody M30">
+		<Fragment slot="eyebrow">3D постуральный анализ</Fragment>
+		<Fragment slot="title">
+			Visbody M30&nbsp;&mdash; <span class="title-accent">3D-анализатор тела</span> с&nbsp;оценкой осанки
+		</Fragment>
+		<Fragment slot="description">
+			Интеллектуальный анализ состава тела, 14&nbsp;автоматических измерений, оценка осанки и&nbsp;прогресс
+			в&nbsp;3D-моделях. Для фитнеса, реабилитации и&nbsp;wellness-центров.
+		</Fragment>
+	</ProductHead>
+
+	<ProductFeatures
+		features={[
+			{
+				title: "3D-аватар и обхваты",
+				description:
+					"14&nbsp;автоматических измерений (шея, грудь, талия, бёдра, руки, икры) с&nbsp;точностью до&nbsp;миллиметра. Наглядные 3D-модели до&nbsp;и&nbsp;после.",
+			},
+			{
+				title: "Интеллектуальная оценка осанки",
+				description:
+					"10&nbsp;ключевых параметров: наклон головы, круглые плечи, таз вперёд/назад, колени, тип ног (X/O). 3D&nbsp;детекция скелетных точек.",
+			},
+			{
+				title: "Динамика и отчёты",
+				description:
+					"Сравнение результатов за&nbsp;разные периоды, визуализация прогресса, отчёты в&nbsp;PDF, мобильный доступ и&nbsp;облачная платформа WellnessHub.",
+			},
+		]}>
+		<Fragment slot="title">Ключевые <span class="title-accent">преимущества</span> Visbody M30</Fragment>
+		<Fragment slot="subtitle">
+			Технологии, которые делают M30 идеальным выбором для фитнес-клубов, студий персонального тренинга
+			и&nbsp;центров реабилитации.
+		</Fragment>
+	</ProductFeatures>
+
+	<SplitSection>
+		<SplitContent slot="left">
+			<Fragment slot="title">Гибридная технология: <br /><span class="title-accent">3D + BIA</span></Fragment>
+			<Fragment slot="text">
+				Visbody M30 объединяет глубинные 3D-сенсоры Intel® RealSense™ и многочастотный биоимпеданс для полной
+				картины здоровья.
+			</Fragment>
+			<ProductTechItems
+				slot="content"
+				items={[
+					{
+						title: "Постуральный анализ",
+						description:
+							"Автоматическое выявление дисбалансов осанки: наклон головы, положение плеч, таза и коленей. Идеально для реабилитации и коррекции тренировок.",
+					},
+					{
+						title: "Точный BIA анализ",
+						description:
+							"5-частотный биоимпеданс: процент жира, мышечная масса, висцеральный жир, уровень воды и метаболизм.",
+					},
+				]}
+			/>
+		</SplitContent>
+		<ProductTechVisual
+			slot="right"
+			title="3D-анализ осанки в реальном времени"
+			label="3D скелетная детекция + BIA"
+			caption="10 параметров осанки + 14 обхватов тела + состав тела"
+		/>
+	</SplitSection>
+
+	<ProductSpecs
+		specs={[
+			{ label: "Питание", value: "220V / 50Hz" },
+			{ label: "Потребляемая мощность", value: "120W" },
+			{ label: "Габариты (зеркало)", value: "1860 мм (В) × 550 мм (Ш) × 340 мм (Г)" },
+			{ label: "Поворотная платформа", value: "⌀450 мм, высота 92 мм" },
+			{ label: "Напольный коврик", value: "1630 × 600 мм" },
+			{ label: "Вес нетто (зеркало)", value: "47 кг" },
+			{ label: "Вес нетто (платформа)", value: "7.5 кг" },
+			{ label: "Максимальный вес пользователя", value: "180 кг" },
+			{ label: "Максимальный рост", value: "200 см" },
+			{ label: "Цветовые решения", value: "Белый / Чёрный (M30 Black edition)" },
+			{ label: "Основной сенсор", value: "3D Depth Vision Sensor (Intel RealSense)" },
+			{ label: "Формат отчётов", value: "Печать A4, мобильная версия H5, веб-панель" },
+			{ label: "Хранение данных", value: "Автоматическое облачное хранение, история сканирований" },
+		]}>
+		<Fragment slot="title">Технические <span class="title-accent">характеристики</span> M30</Fragment>
+		<Fragment slot="subtitle">Официальные спецификации Visbody M30 от&nbsp;производителя</Fragment>
+	</ProductSpecs>
+
+	<ProductCompare
+		columns={{ parameter: "Функция / Характеристика", first: "Visbody M30", second: "Visbody M60" }}
+		rows={[
+			{
+				parameter: "3D сканирование тела",
+				first: { value: "3D/4D аватар" },
+				second: { value: "Full HD 3D модель" },
+			},
+			{
+				parameter: "Измерение состава тела (BIA)",
+				first: { value: "BIA + 3D (5 частот)" },
+				second: { value: "BIA + 3D (8 электродов)" },
+			},
+			{
+				parameter: "Количество обхватов тела",
+				first: { value: "14 (полный набор)", highlight: true },
+				second: { value: "14 (полный набор)" },
+			},
+			{
+				parameter: "Оценка осанки (постуральный анализ)",
+				first: { value: "10 параметров" },
+				second: { value: "До 14 параметров + детальная биомеханика" },
+			},
+			{
+				parameter: "Анализ функции плеча",
+				first: { value: "—" },
+				second: { value: "Есть" },
+			},
+			{
+				parameter: "Оценка формы ягодиц",
+				first: { value: "—" },
+				second: { value: "Есть" },
+			},
+			{
+				parameter: "Прогноз формы тела в отчёте",
+				first: { value: "—" },
+				second: { value: "Есть" },
+			},
+			{
+				parameter: "Экран и управление",
+				first: { value: '27" сенсорный / жесты' },
+				second: { value: '27" сенсорный + жесты + кнопки' },
+			},
+			{
+				parameter: "Макс. вес пользователя",
+				first: { value: "180 кг" },
+				second: { value: "180 кг" },
+			},
+			{
+				parameter: "Ценовой сегмент",
+				first: { value: "Доступный / средний сегмент", highlight: true },
+				second: { value: "Премиум сегмент" },
+			},
+		]}>
+		<Fragment slot="title">
+			Сравнение: <br />
+			<span class="title-accent">Visbody M30</span> vs <span class="title-accent">Visbody M60</span>
+		</Fragment>
+		<Fragment slot="subtitle">
+			Ключевые технические различия между моделью M30 и флагманской M60.
+			<span class="title-accent">Подсвеченные позиции</span> — преимущества M30.
+		</Fragment>
+	</ProductCompare>
+
+	<ProductFeatures
+		features={[
+			{
+				title: "Фитнес-клубы",
+				description:
+					"Экспресс-оценка новых членов клуба, повышение конверсии в персональные тренировки через детальный 3D-анализ.",
+			},
+			{
+				title: "Студии персонального тренинга",
+				description:
+					"Доказательный прогресс для VIP-клиентов. Автоматические замеры обхватов и 3D-аватар без участия тренера.",
+			},
+			{
+				title: "Центры реабилитации",
+				description: "Постуральный анализ и отслеживание динамики восстановления после травм и операций.",
+			},
+		]}>
+		<Fragment slot="title">Для кого <span class="title-accent">идеально</span> подходит M30</Fragment>
+		<Fragment slot="subtitle">
+			Оптимальное решение для бизнеса, где важны точность, визуализация прогресса и оценка осанки
+		</Fragment>
+	</ProductFeatures>
+
+	<ProductLeadSection>
+		<Fragment slot="title">Оставьте заявку для получения коммерческого предложения</Fragment>
+		<Fragment slot="text">
+			Заполните форму, и наш специалист свяжется с вами для расчёта стоимости и подготовки индивидуального
+			предложения.
+		</Fragment>
+	</ProductLeadSection>
+</Layout>

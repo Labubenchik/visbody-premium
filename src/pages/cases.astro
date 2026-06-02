@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import CasesOld from "@/old/CasesOld";
+import MainWrapTL from "@/layouts/MainWrapTL.astro";
+---
+
+<Layout>
+	<MainWrapTL>
+		<CasesOld client:only="react" />
+	</MainWrapTL>
+</Layout>

@@ -1,0 +1,72 @@
+---
+
+---
+
+<div class="wrap">
+	{
+		Astro.slots.has("on-title") && (
+			<div class="eyebrow">
+				<slot name="on-title" />
+			</div>
+		)
+	}
+	<h2 class="title"><slot name="title" /></h2>
+	<p class="text"><slot name="text" /></p>
+	<slot name="content" />
+</div>
+
+<style>
+	.wrap {
+		width: 100%;
+	}
+
+	.eyebrow {
+		margin-bottom: 32px;
+	}
+
+	.title {
+		margin: 0;
+		max-width: 13em;
+		color: #ffffff;
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 800;
+		line-height: 1.04;
+		letter-spacing: 0;
+	}
+
+	.title :global(strong),
+	.title :global(b),
+	.title :global(span) {
+		color: #0ea5e9;
+	}
+
+	.text {
+		margin: 22px 0 0;
+		max-width: 46rem;
+		color: rgba(203, 213, 225, 0.72);
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.75;
+	}
+
+	.wrap :global(> :not(.on-title, .title, .text, .eyebrow)) {
+		margin-top: 46px;
+	}
+
+	@media (max-width: 560px) {
+		.on-title {
+			margin-bottom: 18px;
+			font-size: 0.625rem;
+		}
+
+		.text {
+			margin-top: 18px;
+			font-size: 0.9375rem;
+			line-height: 1.7;
+		}
+
+		.wrap :global(> :not(.on-title, .title, .text)) {
+			margin-top: 30px;
+		}
+	}
+</style>

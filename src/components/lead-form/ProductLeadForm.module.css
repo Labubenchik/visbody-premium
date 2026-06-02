@@ -1,0 +1,40 @@
+.form {
+	display: grid;
+	gap: 16px;
+	margin: 0;
+}
+
+.fieldGroup {
+	min-width: 0;
+}
+
+.submit {
+	width: 100%;
+	margin-top: 4px;
+	border-radius: 18px;
+}
+
+.status,
+.note {
+	margin: 0;
+	font-family: var(--font-sans);
+	text-align: center;
+}
+
+.status {
+	padding: 14px 16px;
+	border: 1px solid rgba(14, 165, 233, 0.2);
+	border-radius: 14px;
+	background: rgba(14, 165, 233, 0.1);
+	color: #7dd3fc;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.45;
+}
+
+.note {
+	color: rgba(148, 163, 184, 0.72);
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.5;
+}

@@ -1,0 +1,53 @@
+---
+
+---
+
+<div class="wrap">
+	<div class="block">
+		<slot name="left" />
+		<slot name="right" />
+	</div>
+</div>
+
+<style>
+	.wrap {
+		position: relative;
+		isolation: isolate;
+		padding: 108px 24px;
+		overflow: hidden;
+		background:
+			linear-gradient(180deg, rgba(2, 6, 23, 0.18), rgba(10, 25, 47, 0.18)),
+			radial-gradient(circle at 75% 35%, rgba(14, 165, 233, 0.1), transparent 34rem);
+		border-top: 1px solid rgba(255, 255, 255, 0.03);
+	}
+
+	.block {
+		width: min(100%, 1200px);
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(auto, 780px));
+		align-items: center;
+		gap: 56px;
+	}
+
+	.side {
+		min-width: 0;
+	}
+
+	@media (max-width: 900px) {
+		.wrap {
+			padding: 80px 20px;
+		}
+
+		.block {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.wrap {
+			padding: 64px 16px;
+		}
+	}
+</style>

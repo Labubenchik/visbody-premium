@@ -1,0 +1,130 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SplitContent from "@modules/split-section/components/SplitContent.astro";
+import SplitSection from "@modules/split-section/SplitSection.astro";
+import SplitList from "@modules/split-section/components/SplitList.astro";
+import MethodsComparison from "@modules/split-section/components/MethodsComparison.astro";
+import ProtectionBadge from "@modules/split-section/components/ProtectionBadge.astro";
+import WellnessDashboard from "@modules/split-section/components/WellnessDashboard.astro";
+import {
+	Activity,
+	BadgeCheck,
+	BrainCircuit,
+	ChartColumnIncreasing,
+	CloudCheck,
+	LockKeyhole,
+	Network,
+	Ruler,
+	ShieldCheck,
+	Smartphone,
+	UserCog,
+} from "@lucide/astro";
+import type { ComponentProps } from "astro/types";
+
+// SplitList > list
+const listAccuracy: ComponentProps<typeof SplitList>["list"] = [
+	{
+		icon: BadgeCheck,
+		title: "Валидация против DEXA (золотого стандарта)",
+		text: "Технология Visbody прошла клинические испытания и демонстрирует высокую корреляцию (R=0.96) с двухэнергетической рентгеновской абсорбциометрией. Это подтверждает пригодность оборудования для медицинского мониторинга и профессионального спорта.",
+	},
+	{
+		icon: Activity,
+		title: "Гибридная технология BIA + BDA",
+		text: "Интеграция биоимпедансного анализа с 3D-сканированием плотности тела (BDA —  Bulk Density Analysis) компенсирует погрешности, вызванные уровнем гидратации,  временем суток или физической нагрузкой. Результаты стабильны при каждом  тестировании.",
+	},
+	{
+		icon: Ruler,
+		title: "Превосходство над ручными методами",
+		text: "Автоматический сбор 14+ анатомических обхватов, анализ осанки и 3D-аватар  исключают человеческий фактор и субъективность. Тренер больше не нуждается в  сантиметровой ленте — данные фиксируются с миллиметровой точностью.",
+	},
+];
+
+const listProtection: ComponentProps<typeof SplitList>["list"] = [
+	{
+		icon: LockKeyhole,
+		title: "Шифрование данных 256-bit SSL/TLS",
+		text: "Все данные, передаваемые между устройством, мобильным приложением и облаком,  защищены с помощью современных алгоритмов шифрования. Visbody использует  безопасные протоколы передачи данных, исключающие перехват третьими лицами.",
+	},
+	{
+		icon: CloudCheck,
+		title: "Инфраструктура Amazon Web Services (AWS)",
+		text: "Ваши данные хранятся на серверах AWS — самой надёжной и масштабируемой  облачной платформе в мире. Автоматическое резервное копирование,  многоуровневая защита и географически распределённые центры обработки данных  гарантируют непрерывную доступность.",
+	},
+	{
+		icon: ShieldCheck,
+		title: "Соответствие международным стандартам (GDPR)",
+		text: "Система разработана в строгом соответствии с требованиями Общего регламента по  защите данных (GDPR). Клиентские данные не передаются третьим лицам без явного  согласия. Вы имеете полный контроль над своими измерениями и историей  сканирований.",
+	},
+	{
+		icon: UserCog,
+		title: "Ролевой доступ и аудит",
+		text: "Разграничение прав администратора, тренера и клиента: каждый видит только то, что  ему разрешено. Все изменения и просмотры логируются. Удалённый доступ к системе  возможен только после двухфакторной аутентификации.",
+	},
+];
+
+const listEcosystem: ComponentProps<typeof SplitList>["list"] = [
+	{
+		icon: Network,
+		title: "Единый контур управления сетью",
+		text: "WellnessHub позволяет управлять всеми устройствами Visbody во всех филиалах из  одной точки. Администратор видит загрузку оборудования, историю сканирований  клиентов и может централизованно настраивать права доступа.",
+	},
+	{
+		icon: BrainCircuit,
+		title: "Интерактивные отчёты с DeepSeek AI",
+		text: "На базе большой языковой модели DeepSeek система автоматически генерирует  персонализированные рекомендации по питанию и тренировкам. Клиент получает не  просто цифры, а понятные интерпретации и конкретные шаги к цели.",
+	},
+	{
+		icon: Smartphone,
+		title: "Интеграция с CRM и мобильным приложением",
+		text: 'WellnessHub легко интегрируется с вашей CRM-системой через открытый API.  Клиенты получают доступ к своим результатам в мобильном приложении, могут  отслеживать динамику и сравнивать 3D-модели "до/после" прямо со смартфона.',
+	},
+	{
+		icon: ChartColumnIncreasing,
+		title: "Экспорт и аналитика",
+		text: "Поддерживается экспорт данных в форматах PDF и CSV для дальнейшего анализа.  WellnessHub хранит полную историю всех сканирований с возможностью сравнения  любых временных периодов и выгрузки отчётов для клиентов и партнёров.",
+	},
+];
+---
+
+<Layout>
+	<div class="nav-bar-gap"></div>
+	<SplitSection>
+		<SplitContent slot="left">
+			<Fragment slot="on-title">Медицинская точность</Fragment>
+			<Fragment slot="title">Клиническая валидация</Fragment>
+			<Fragment slot="text">
+				Visbody — единственная в своём классе система, сочетающая многочастотный BIA-анализ и оптическую
+				3D-реконструкцию для достижения эталонной точности измерений.
+			</Fragment>
+			<SplitList slot="content" list={listAccuracy} />
+		</SplitContent>
+		<MethodsComparison slot="right" />
+	</SplitSection>
+
+	<SplitSection>
+		<ProtectionBadge slot="left" />
+		<SplitContent slot="right">
+			<Fragment slot="on-title">Защита данных</Fragment>
+			<Fragment slot="title">Безопасность и соответствие стандартам</Fragment>
+			<Fragment slot="text">
+				Visbody гарантирует полную конфиденциальность и защиту персональных данных на всех уровнях: от сенсора
+				до облачного хранилища.
+			</Fragment>
+			<SplitList slot="content" list={listProtection} />
+		</SplitContent>
+	</SplitSection>
+
+	<SplitSection>
+		<SplitContent slot="left">
+			<Fragment slot="on-title">Экосистема</Fragment>
+			<Fragment slot="title">Про WellnessHub</Fragment>
+			<Fragment slot="text">
+				WellnessHub — это центральное облачное решение Visbody, объединяющее все устройства вашей сети в единую
+				экосистему управления клиентами и аналитики.
+			</Fragment>
+			<SplitList slot="content" list={listEcosystem} />
+		</SplitContent>
+		<WellnessDashboard slot="right" />
+	</SplitSection>
+</Layout>

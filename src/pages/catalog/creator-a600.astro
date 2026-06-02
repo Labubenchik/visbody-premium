@@ -1,0 +1,212 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import ProductFeatures from "@modules/product/ProductFeatures.astro";
+import ProductHead from "@modules/product/ProductHead.astro";
+import ProductLeadSection from "@modules/product/ProductLeadSection.astro";
+import ProductSpecs from "@modules/product/ProductSpecs.astro";
+import ProductRunAnalysis from "@modules/product/ProductRunAnalysis.astro";
+import SplitSection from "@modules/split-section/SplitSection.astro";
+import SplitContent from "@modules/split-section/components/SplitContent.astro";
+import ProductWellnessMockup from "@modules/product/components/ProductWellnessMockup.astro";
+import SplitList from "@modules/split-section/components/SplitList.astro";
+import ProductList from "@modules/product/ProductList.astro";
+
+import a600Image from "@modules/home/hero-section/assets/creator-A600.webp";
+import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, Trophy } from "@lucide/astro";
+---
+
+<Layout>
+	<ProductHead
+		primaryAction={{ label: "Запросить цену", href: "#lead-form", id: "priceBtnA600" }}
+		secondaryAction={{ label: "Характеристики", href: "#tech", withArrow: true }}
+		imageSrc={a600Image.src}
+		imageAlt="Visbody Creator A600">
+		<Fragment slot="eyebrow">Интеллектуальная беговая дорожка</Fragment>
+		<Fragment slot="title">
+			Visbody <span class="title-accent">Creator A600</span>
+		</Fragment>
+		<Fragment slot="description">
+			Единственная в мире беговая дорожка с 3D-анализом техники бега в реальном времени. Разработана дизайнером
+			Porsche для профессиональных спортсменов и реабилитационных центров.
+		</Fragment>
+	</ProductHead>
+
+	<ProductFeatures
+		features={[
+			{
+				title: "ViScan Motion Capture",
+				description:
+					"Запатентованная технология захвата движений в реальном времени. 4D-камера глубины отслеживает каждый шаг и формирует точную 3D-модель бегуна.",
+			},
+			{
+				title: "23 AI-анализа в минуту",
+				description:
+					"Искусственный интеллект обрабатывает 23 ключевых параметра техники бега каждые 60 секунд, предоставляя объективную оценку прогресса.",
+			},
+			{
+				title: "Дизайн от Porsche",
+				description:
+					"Разработана дизайнером студии Milon, создавшей Porsche 911. Эргономика премиум-класса сочетается с максимальной функциональностью.",
+			},
+		]}>
+		<Fragment slot="title">Ключевые <span class="title-accent">преимущества</span> Creator A600</Fragment>
+		<Fragment slot="subtitle">
+			Инновационная система, объединяющая профессиональную беговую дорожку с передовой технологией анализа
+			движений
+		</Fragment>
+	</ProductFeatures>
+
+	<ProductSpecs
+		specs={[
+			{ label: "Габариты (собранная)", value: "2564,2 × 1024 × 2289,9 мм" },
+			{ label: "Площадь беговой ленты", value: "580 × 1620 мм" },
+			{ label: "Вес оборудования", value: "360 кг" },
+			{ label: "Максимальный вес пользователя", value: "180 кг" },
+			{ label: "Диапазон скорости", value: "0,5 — 20 км/ч" },
+			{ label: "Диапазон наклона", value: "0 — 18%" },
+			{ label: "Дисплей", value: "50-дюймовый 4K" },
+			{ label: "Система безопасности", value: "AI Dual Anti-Fall Design" },
+			{ label: "Смазка", value: "Автоматическая умная система смазки" },
+		]}>
+		<Fragment slot="title">Технические <span class="title-accent">характеристики</span></Fragment>
+		<Fragment slot="subtitle">Официальные спецификации Visbody Creator A600</Fragment>
+	</ProductSpecs>
+
+	<ProductRunAnalysis
+		cards={[
+			{
+				title: "Оценка нагрузки на суставы",
+				description: "Профилактика травм коленей и голеностопа",
+			},
+			{
+				title: "Отклонение центра тяжести",
+				description: "Коррекция баланса и осанки",
+			},
+			{
+				title: "Угол коленного сустава",
+				description: "Оптимизация амортизации и снижение ударной нагрузки",
+			},
+			{
+				title: "Вертикальная амплитуда и длина шага",
+				description: "Повышение эффективности бега",
+			},
+			{
+				title: "Динамика симметрии движений",
+				description: "Выявление асимметрии и дисбаланса",
+			},
+			{
+				title: "23 AI-анализа в реальном времени",
+				description: "Каждую минуту система обрабатывает 23 биомеханических параметра",
+			},
+		]}
+		metrics={[
+			{ label: "Угол колена", value: "18.4°", unit: "±0.3" },
+			{ label: "Верт. амплитуда", value: "12.7", unit: "cm" },
+			{ label: "Длина шага", value: "1.18", unit: "m" },
+			{ label: "Симметрия", value: "97.8", unit: "%" },
+		]}
+		progress={[
+			{ label: "Нагрузка левый сустав", value: 42 },
+			{ label: "Нагрузка правый сустав", value: 38 },
+			{ label: "Эффективность бега", value: 86 },
+		]}
+		footer="Sampling rate: 60Hz | Latency: <50ms | AI confidence: 98.3%">
+		<Fragment slot="title">3D-анализ <br /><span class="title-accent">техники бега</span></Fragment>
+		<Fragment slot="text">
+			Система ViScan в реальном времени отслеживает биомеханику бега и предоставляет детальные отчёты после каждой
+			тренировки.
+		</Fragment>
+	</ProductRunAnalysis>
+
+	<ProductList
+		items={[
+			{
+				title: "Профессиональные спортсмены",
+				description:
+					"Детальный анализ техники бега, выявление слабых зон и работа над эффективностью движений.",
+				icon: Trophy,
+			},
+			{
+				title: "Реабилитационные центры",
+				description:
+					"Контроль восстановления после травм, оценка нагрузки на суставы и безопасная коррекция биомеханики.",
+				icon: HeartPulse,
+			},
+			{
+				title: "Премиум фитнес-клубы",
+				description:
+					"Уникальное конкурентное преимущество — единственная в городе беговая дорожка с AI-анализом техники.",
+				icon: Dumbbell,
+			},
+		]}>
+		<Fragment slot="title">Для кого <span class="title-accent">идеально</span> подходит A600</Fragment>
+		<Fragment slot="subtitle">Профессиональное оборудование для разных категорий пользователей</Fragment>
+	</ProductList>
+
+	<ProductFeatures
+		features={[
+			{
+				title: "Владельцу клуба",
+				description:
+					"Уникальное предложение для привлечения VIP-клиентов и профессиональных спортсменов. Высокая окупаемость за счёт премиум-позиционирования.",
+			},
+			{
+				title: "Тренеру",
+				description:
+					"Объективные данные о технике бега клиента. Возможность корректировки движений на основе точных измерений, а не визуальной оценки.",
+			},
+			{
+				title: "Клиенту",
+				description:
+					"Визуализация прогресса, снижение риска травм, персонализированные рекомендации для улучшения результатов.",
+			},
+		]}>
+		<Fragment slot="title"><span class="title-accent">Кому</span> выгодно</Fragment>
+		<Fragment slot="subtitle">Creator A600 — инвестиция в здоровье и результаты</Fragment>
+	</ProductFeatures>
+
+	<SplitSection>
+		<ProductWellnessMockup
+			slot="left"
+			title="Анализ бега | WELLNESSHUB"
+			metric="Погрешность < 1%"
+			bars={[35, 80, 55, 92, 68]}
+		/>
+		<SplitContent slot="right">
+			<Fragment slot="title">Экосистема <span class="title-accent">WellnessHub</span></Fragment>
+			<Fragment slot="text">
+				Все данные тренировок автоматически сохраняются в облаке и доступны через мобильное приложение.
+			</Fragment>
+			<SplitList
+				slot="content"
+				list={[
+					{
+						icon: FileText,
+						title: "Подробные отчёты о технике бега после каждой тренировки",
+					},
+					{
+						icon: ChartNoAxesCombined,
+						title: "Динамика прогресса по всем 23 параметрам",
+					},
+					{
+						icon: Route,
+						title: 'Виртуальный бег по живописным маршрутам на 50" 4K-экране',
+					},
+					{
+						icon: Megaphone,
+						title: "Интеграция с CRM фитнес-клуба для ведения клиентов",
+					},
+				]}
+			/>
+		</SplitContent>
+	</SplitSection>
+
+	<ProductLeadSection>
+		<Fragment slot="title">Оставьте заявку для получения коммерческого предложения</Fragment>
+		<Fragment slot="text">
+			Заполните форму, и наш специалист свяжется с вами для расчёта стоимости и подготовки индивидуального
+			предложения.
+		</Fragment>
+	</ProductLeadSection>
+</Layout>

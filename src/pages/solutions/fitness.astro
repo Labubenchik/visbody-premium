@@ -1,0 +1,100 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import MainWrapTL from "@/layouts/MainWrapTL.astro";
+import RoiCalculator from "@/modules/roi-calculator/RoiCalculator";
+import { ArrowRight } from "@lucide/astro";
+---
+
+<Layout>
+	<MainWrapTL>
+		<div class="relative pb-24 text-white min-h-screen">
+			<div
+				class="absolute top-0 left-0 w-[500px] h-[500px] bg-green-500/5 blur-[120px] rounded-full pointer-events-none">
+			</div>
+
+			<section class="py-24 text-center px-4 relative z-10">
+				<div
+					class="inline-block border border-green-500/50 rounded-full text-green-500 px-4 py-1.5 uppercase font-dot text-xs mb-6 bg-green-500/10 tracking-[0.3em]">
+					Business Solution
+				</div>
+				<h1 class="text-5xl md:text-7xl font-dot uppercase tracking-tighter mb-8 text-white">
+					Для фитнес-
+					<span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">
+						индустрии
+					</span>
+				</h1>
+				<p class="text-xl text-gray-400 font-sans max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
+					Инструмент удержания клиентов и кратного роста продаж персональных тренировок.
+				</p>
+			</section>
+
+			<section class="py-20 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto px-4">
+				<div class="bg-red-500/5 border border-red-500/20 rounded-4xl p-10">
+					<h3 class="text-red-500 font-dot uppercase text-xl mb-4">// Проблема</h3>
+					<p class="text-2xl font-sans font-light text-white leading-relaxed">
+						«Клиенты бросают тренировки на 2-3 месяц, потому что не видят визуального прогресса в обычном
+						зеркале».
+					</p>
+				</div>
+				<div class="bg-green-500/5 border border-green-500/20 rounded-4xl p-10">
+					<h3 class="text-green-500 font-dot uppercase text-xl mb-4">// Решение Visbody</h3>
+					<p class="text-2xl font-sans font-light text-white leading-relaxed">
+						Оцифровка прогресса. Визуализация миллиметровых изменений в 3D мотивирует продлевать абонементы.
+					</p>
+				</div>
+			</section>
+
+			<section class="py-12 max-w-5xl mx-auto px-4">
+				<h2 class="text-3xl font-dot uppercase text-center mb-16">Как внедрить в бизнес-процесс</h2>
+				<div class="flex flex-col md:flex-row gap-8 relative">
+					{
+						[
+							{
+								title: "Скрининг при старте",
+								desc: "Входит в стартовую тренировку. Выявляет дисбалансы.",
+							},
+							{ title: "Промежуточные замеры", desc: "Каждые 4 недели для корректировки плана питания." },
+							{ title: "Отчеты и Upsell", desc: "Наглядный отчет продает следующие пакеты тренировок." },
+						].map((step, i) => (
+							<div class="glass-card p-8 flex-1 border-t-2 border-brand-accent bg-brand-dark">
+								<div class="text-4xl font-dot text-brand-accent/50 mb-4">0{i + 1}</div>
+								<h4 class="text-lg font-dot uppercase text-white mb-2">{step.title}</h4>
+								<p class="text-sm font-sans text-gray-400">{step.desc}</p>
+							</div>
+						))
+					}
+				</div>
+			</section>
+
+			<section class="py-20 bg-black/30 border-y border-white/5 my-20 rounded-4xl">
+				<div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+					<div>
+						<div class="text-6xl font-dot text-brand-accent mb-2">+356%</div>
+						<div class="text-white font-dot uppercase tracking-wide">Рост выручки с ПТ</div>
+					</div>
+					<div>
+						<div class="text-6xl font-dot text-green-500 mb-2">+20%</div>
+						<div class="text-white font-dot uppercase tracking-wide">Вовлеченность клиентов</div>
+					</div>
+					<div>
+						<div class="text-6xl font-dot text-blue-500 mb-2">-30%</div>
+						<div class="text-white font-dot uppercase tracking-wide">Время на консультацию</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="text-center mb-24">
+				<h3 class="text-2xl font-dot uppercase mb-6">Рекомендуемое оборудование</h3>
+				<a
+					href="/product/visbody-s30"
+					class="inline-flex items-center gap-4 bg-white text-black px-8 py-4 font-dot uppercase tracking-widest hover:bg-brand-accent hover:text-white transition-all">
+					Смотреть Visbody S30 <ArrowRight />
+				</a>
+			</div>
+
+			<div class="mx-auto px-4">
+				<RoiCalculator />
+			</div>
+		</div>
+	</MainWrapTL>
+</Layout>

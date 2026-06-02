@@ -1,0 +1,36 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import MainWrapTL from "@/layouts/MainWrapTL.astro";
+import NumbersSection from "@modules/numbers-section/NumbersSection.astro";
+import HeroSection from "@modules/home/hero-section/HeroSection.astro";
+import Quote from "@modules/quote/Quote.astro";
+import RoiCalculator from "@modules/roi-calculator/RoiCalculator";
+---
+
+<Layout>
+	<MainWrapTL>
+		<div
+			class="relative bg-transparent text-white font-sans overflow-x-hidden selection:bg-brand-accent/20 max-md:-ml-6 max-md:-mr-6">
+			<div
+				class="absolute top-0 right-1/4 w-[800px] h-[800px] bg-blue-500/10 blur-[150px] rounded-full pointer-events-none">
+			</div>
+			<div
+				class="absolute bottom-0 left-1/4 w-[800px] h-[800px] bg-cyan-400/10 blur-[120px] rounded-full pointer-events-none">
+			</div>
+
+			<HeroSection />
+
+			<div class="mt-28 mb-28 max-w-7xl mx-auto px-4">
+				<NumbersSection />
+
+				<section class="mb-24">
+					<Quote />
+
+					<div class="glass-card p-3 md:p-12 max-md:rounded-[2.7rem] bg-white/5 border border-white/10">
+						<RoiCalculator client:load />
+					</div>
+				</section>
+			</div>
+		</div>
+	</MainWrapTL>
+</Layout>

@@ -1,0 +1,243 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import ProductCompare from "@modules/product/ProductCompare.astro";
+import ProductFeatures from "@modules/product/ProductFeatures.astro";
+import ProductHead from "@modules/product/ProductHead.astro";
+import ProductLeadSection from "@modules/product/ProductLeadSection.astro";
+import ProductSpecs from "@modules/product/ProductSpecs.astro";
+import ProductTechItems from "@modules/product/components/ProductTechItems.astro";
+import ProductTechVisual from "@modules/product/components/ProductTechVisual.astro";
+import SplitSection from "@modules/split-section/SplitSection.astro";
+import SplitContent from "@modules/split-section/components/SplitContent.astro";
+import ProductWellnessMockup from "@modules/product/components/ProductWellnessMockup.astro";
+import SplitList from "@modules/split-section/components/SplitList.astro";
+
+import s30Image from "@modules/home/hero-section/assets/s-30.webp";
+import { BrainCircuit, Calculator, FileDown, Megaphone, History } from "@lucide/astro";
+---
+
+<Layout>
+	<ProductHead
+		primaryAction={{ label: "Узнать цену", href: "#lead-form", id: "priceBtnM60" }}
+		secondaryAction={{ label: "Узнать технологии", href: "#tech", withArrow: true }}
+		imageSrc={s30Image.src}
+		imageAlt="Visbody S30">
+		<Fragment slot="eyebrow">Гибридное ИИ-решение</Fragment>
+		<Fragment slot="title">
+			Visbody S30&nbsp;&mdash; <span class="title-accent">3D-анализатор тела</span> с&nbsp;измерением роста
+		</Fragment>
+		<Fragment slot="description">
+			Первый в&nbsp;мире гибридный 3D-сканер, объединяющий многочастотный BIA и&nbsp;точное лазерное измерение
+			роста. Идеальный баланс между экспертной аналитикой и&nbsp;доступностью для бизнеса.
+		</Fragment>
+	</ProductHead>
+
+	<ProductFeatures
+		features={[
+			{
+				title: "Лазерное измерение роста",
+				description:
+					"Встроенный лазерный дальномер с точностью до 0.5 см. Рост автоматически учитывается при расчете ИМТ, композиции тела и сегментарном анализе — без ручного ввода и ошибок персонала.",
+			},
+			{
+				title: "Гибридный BIA + 3D",
+				description:
+					"8-электродный многочастотный биоимпеданс в комбинации с оптическим 3D-контуром тела. Повышенная точность даже при изменении уровня гидратации клиента.",
+			},
+			{
+				title: "Доступность и окупаемость",
+				description:
+					"Оптимальная стоимость оборудования для сетевых клубов. Быстрая окупаемость за счет генерации лидов через экспресс-тестирование и автоматическую отчетность.",
+			},
+		]}>
+		<Fragment slot="title">Ключевые <span class="title-accent">преимущества</span> Visbody S30</Fragment>
+		<Fragment slot="subtitle">
+			Технологии, которые делают S30 идеальным выбором для фитнес-клубов, студий персонального тренинга и центров
+			похудения.
+		</Fragment>
+	</ProductFeatures>
+
+	<SplitSection>
+		<SplitContent slot="left">
+			<Fragment slot="title">Гибридная технология: <br /><span class="title-accent">рост + BIA</span></Fragment>
+			<Fragment slot="text">
+				Visbody S30&nbsp;&mdash; первый в&nbsp;мире анализатор состава тела с&nbsp;интегрированным лазерным
+				измерением роста и&nbsp;многочастотным биоимпедансом.
+			</Fragment>
+			<ProductTechItems
+				slot="content"
+				items={[
+					{
+						title: "Автоматическая антропометрия",
+						description:
+							"Лазерный дальномер исключает человеческий фактор. Рост фиксируется за 2 секунды, после чего система автоматически рассчитывает корректные целевые зоны и нормативы.",
+					},
+					{
+						title: "Идеально для центров похудения",
+						description:
+							"Точный замер прогресса по параметрам жировой массы, висцерального жира и мышечного баланса без дополнительных ручных обмеров.",
+					},
+				]}
+			/>
+		</SplitContent>
+		<ProductTechVisual
+			slot="right"
+			title="Преимущество гибридного подхода"
+			label="Интеграция лазерного дальномера + 3D-сенсор"
+			caption="Автоматический расчет ИМТ, мышечной массы и процента жира с учетом реального роста"
+		/>
+	</SplitSection>
+
+	<ProductFeatures
+		features={[
+			{
+				title: "Фитнес-клубы",
+				description:
+					"Экспресс-оценка новых членов клуба, повышение конверсии в персональные тренировки через детальный анализ тела.",
+			},
+			{
+				title: "Студии персонального тренинга",
+				description:
+					"Доказательный прогресс для VIP-клиентов. Автоматические замеры обхватов и 3D-аватар без участия тренера.",
+			},
+			{
+				title: "Центры похудения",
+				description:
+					"Контроль висцерального жира, жировой массы и мышечного баланса на каждом этапе программы снижения веса.",
+			},
+		]}>
+		<Fragment slot="title">Для кого <span class="title-accent">идеально</span> <br />подходит S30</Fragment>
+		<Fragment slot="subtitle">
+			Оптимальное решение для бизнеса, где важны точность, скорость и окупаемость
+		</Fragment>
+	</ProductFeatures>
+
+	<ProductSpecs
+		specs={[
+			{ label: "Цвет устройства", value: "Чёрный / Белый" },
+			{ label: "Габариты центральной колонны (В × Ш × Г)", value: "1681 × 400 × 685,3 мм" },
+			{ label: "Габариты напольного коврика (Д × Ш)", value: "1830 × 680 мм" },
+			{ label: "Поворотный круг (диаметр × высота)", value: "600 × 74 мм" },
+			{ label: "Вес устройства (колонна + основание)", value: "53 кг" },
+			{ label: "Вес поворотного круга", value: "10 кг" },
+			{ label: "Вес напольного коврика", value: "3 кг" },
+			{ label: "Максимальный вес пользователя (основной)", value: "250 кг" },
+			{ label: "Максимальная нагрузка на поворотный круг", value: "180 кг" },
+			{ label: "Максимальный рост пользователя", value: "200 см" },
+			{ label: "Диапазон рабочих температур", value: "10°C ~ 40°C" },
+			{ label: "Электропитание", value: "220 В / 50 Гц" },
+			{ label: "Основной сенсор", value: "3D Depth Vision Sensor" },
+			{ label: "Формат отчётов", value: "Печать A4, мобильная версия H5, веб-панель управления" },
+			{
+				label: "Хранение данных",
+				value: "Автоматическое облачное хранение, удалённый доступ, история изменений, резервное копирование",
+			},
+		]}>
+		<Fragment slot="title">Технические <span class="title-accent">характеристики</span></Fragment>
+		<Fragment slot="subtitle">Официальные спецификации Visbody S30 от производителя</Fragment>
+	</ProductSpecs>
+
+	<ProductCompare
+		columns={{ parameter: "Параметр", first: "Visbody S30", second: "Visbody M60" }}
+		rows={[
+			{
+				parameter: "Измерение роста",
+				first: { value: "Встроенный лазерный дальномер ±0.5 см", highlight: true },
+				second: { value: "Ручной ввод или внешний ростомер" },
+			},
+			{
+				parameter: "Полный цикл сканирования",
+				first: { value: "45 секунд (с измерением роста)" },
+				second: { value: "40 секунд" },
+			},
+			{
+				parameter: "Метод анализа",
+				first: { value: "8-электродный BIA + оптический 3D-контур + лазерный ростомер", highlight: true },
+				second: { value: "5-сегментарный BIA + 3D Depth Vision" },
+			},
+			{
+				parameter: "Частоты BIA",
+				first: { value: "5 частот (5, 50, 100, 250, 500 кГц)" },
+				second: { value: "4 частоты (5, 50, 250, 500 кГц)" },
+			},
+			{
+				parameter: "Автоматические обхваты",
+				first: { value: "12 ключевых обхватов (шея, плечи, грудь, талия, бедра и др.)" },
+				second: { value: "14 анатомических обхватов" },
+			},
+			{
+				parameter: "Функция 3D Body Prediction",
+				first: { value: "Базовое прогнозирование изменений (до/после)" },
+				second: { value: "Расширенное прогнозирование формы тела" },
+			},
+			{
+				parameter: "Подогрев платформы",
+				first: { value: "Стандартная платформа" },
+				second: { value: "3-уровневый подогрев" },
+			},
+			{
+				parameter: "Ценовой сегмент",
+				first: { value: "Доступный / средний сегмент", highlight: true },
+				second: { value: "Премиум / экспертный уровень" },
+			},
+		]}>
+		<Fragment slot="title">
+			Сравнение: <br />
+			<span class="title-accent">Visbody S30</span> vs <span class="title-accent">Visbody M60</span>
+		</Fragment>
+		<Fragment slot="subtitle">
+			Ключевые технические различия между гибридной моделью S30 и моделью M60.
+			<span class="title-accent">Подсвеченные позиции</span> — преимущества S30.
+		</Fragment>
+	</ProductCompare>
+
+	<SplitSection>
+		<ProductWellnessMockup
+			slot="left"
+			title="Анализ состава тела S30"
+			metric="Погрешность < 1%"
+			bars={[35, 80, 55, 92, 68]}
+		/>
+		<SplitContent slot="right">
+			<Fragment slot="title">Платформа <span class="title-accent">WellnessHub</span> для S30</Fragment>
+			<Fragment slot="text">
+				Все данные сканирования автоматически загружаются в защищенное облако. Интеграция с CRM фитнес-клуба и
+				мобильным приложением клиента.
+			</Fragment>
+			<SplitList
+				slot="content"
+				list={[
+					{
+						icon: Calculator,
+						title: "Автоматический расчет 28+ метрик: процент жира, мышечная масса, висцеральный жир, вода.",
+					},
+					{
+						icon: BrainCircuit,
+						title: "Интерактивные отчеты с рекомендациями на базе языковой модели DeepSeek.",
+					},
+					{
+						icon: Megaphone,
+						title: 'Маркетинговые инструменты: генерация лидов, сравнение "до/после" и автоматическая рассылка.',
+					},
+					{
+						icon: History,
+						title: "Удалённый доступ для тренеров и администраторов к истории сканирований.",
+					},
+					{
+						icon: FileDown,
+						title: "Экспорт данных в форматах PDF, CSV для интеграции с внешними системами.",
+					},
+				]}
+			/>
+		</SplitContent>
+	</SplitSection>
+
+	<ProductLeadSection>
+		<Fragment slot="title">Оставьте заявку для получения коммерческого предложения</Fragment>
+		<Fragment slot="text">
+			Заполните форму, и наш специалист свяжется с вами для расчёта стоимости и подготовки индивидуального
+			предложения.
+		</Fragment>
+	</ProductLeadSection>
+</Layout>

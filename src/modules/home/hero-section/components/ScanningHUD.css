@@ -1,0 +1,30 @@
+.scanning-hud__beam {
+	top: -10%;
+	animation: scanning-hud-beam 3s linear infinite;
+}
+
+.scanning-hud__line {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	animation: scanning-hud-line 1.5s linear infinite;
+}
+
+@keyframes scanning-hud-beam {
+	from {
+		top: -10%;
+	}
+
+	to {
+		top: 110%;
+	}
+}
+
+@keyframes scanning-hud-line {
+	from {
+		stroke-dashoffset: 1;
+	}
+
+	to {
+		stroke-dashoffset: 0;
+	}
+}

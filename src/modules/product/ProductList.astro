@@ -1,0 +1,221 @@
+---
+import { Activity } from "@lucide/astro";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+type Props = {
+	items?: {
+		title: string;
+		description: string;
+		icon?: AstroComponentFactory;
+	}[];
+};
+
+const {
+	items = [
+		{
+			title: "Фитнес",
+			description: "Оценка прогресса, мотивация клиентов, продажа персональных тренировок",
+			icon: Activity,
+		},
+	],
+} = Astro.props as Props;
+---
+
+<section class="tasks-section bg-gradient-1 fade-up">
+	<div class="container">
+		<h2 class="section-title">
+			<slot name="title" />
+		</h2>
+		<p class="section-subtitle"><slot name="subtitle" /></p>
+		<ul class="tasks-list" aria-label="Список задач">
+			{
+				items.map(({ title, description, icon: Icon = Activity }) => {
+					return (
+						<li class="task-item">
+							<div class="icon-wrap">
+								<Icon size={24} stroke-width={2} />
+							</div>
+							<div class="item-content">
+								<h4>{title}</h4>
+								<p>{description}</p>
+							</div>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.tasks-section {
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		padding: 96px 24px 112px;
+	}
+
+	.bg-gradient-1 {
+		background:
+			linear-gradient(135deg, rgba(2, 6, 23, 0.1) 0%, rgba(10, 25, 47, 0.28) 100%),
+			radial-gradient(circle at 14% 16%, rgba(14, 165, 233, 0.12), transparent 34%);
+	}
+
+	.container {
+		width: min(100%, 960px);
+		margin: 0 auto;
+	}
+
+	.section-title {
+		max-width: 860px;
+		margin: 0 auto 20px;
+		color: #ffffff;
+		font-family: var(--font-sans);
+		font-size: clamp(38px, 5vw, 52px);
+		font-weight: 800;
+		line-height: 1.03;
+		letter-spacing: -0.045em;
+		text-align: center;
+		text-transform: uppercase;
+
+		& > :global(.title-accent) {
+			letter-spacing: -0.025em;
+		}
+	}
+
+	.section-subtitle {
+		max-width: 720px;
+		margin: 0 auto 48px;
+		color: #cbd5e1;
+		font-family: var(--font-sans);
+		font-size: 18px;
+		line-height: 1.6;
+		letter-spacing: -0.015em;
+		text-align: center;
+		opacity: 0.82;
+	}
+
+	.tasks-list {
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.task-item {
+		position: relative;
+		display: grid;
+		grid-template-columns: 64px 1fr;
+		gap: 20px;
+		align-items: center;
+		padding: 16px;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.07);
+		border-radius: 28px;
+		background: rgba(15, 23, 42, 0.42);
+		box-shadow: 0 20px 58px rgba(0, 0, 0, 0.22);
+		backdrop-filter: blur(24px);
+		-webkit-backdrop-filter: blur(24px);
+	}
+
+	.task-item::after {
+		position: absolute;
+		width: 32px;
+		height: 3px;
+		top: 0;
+		left: 32px;
+		border-radius: 999px;
+		background: linear-gradient(90deg, var(--color-brand-accent), #60a5fa);
+		content: "";
+	}
+
+	.icon-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 64px;
+		height: 64px;
+		border: 1px solid rgba(14, 165, 233, 0.22);
+		border-radius: 20px;
+		background: rgba(14, 165, 233, 0.1);
+		color: var(--color-brand-accent);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	}
+
+	.item-content {
+		padding-right: 24px;
+	}
+
+	.item-content h4 {
+		margin: 0 0 8px;
+		color: #ffffff;
+		font-family: var(--font-sans);
+		font-size: 22px;
+		font-weight: 800;
+		line-height: 1.15;
+		letter-spacing: -0.025em;
+	}
+
+	.item-content p {
+		margin: 0;
+		color: #cbd5e1;
+		font-family: var(--font-sans);
+		font-size: 16px;
+		line-height: 1.58;
+		letter-spacing: -0.01em;
+		opacity: 0.82;
+	}
+
+	@media (max-width: 992px) {
+		.tasks-section {
+			padding: 76px 20px 92px;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.tasks-section {
+			padding-inline: 16px;
+		}
+
+		.section-title {
+			font-size: 34px;
+		}
+
+		.section-subtitle {
+			margin-bottom: 36px;
+			font-size: 16px;
+		}
+
+		.task-item {
+			grid-template-columns: 52px 1fr;
+			gap: 16px;
+			min-height: 104px;
+			padding: 20px;
+			border-radius: 24px;
+		}
+
+		.task-item::after {
+			display: none;
+		}
+
+		.icon-wrap {
+			width: 52px;
+			height: 52px;
+			border-radius: 17px;
+		}
+
+		.item-content {
+			padding-right: 0;
+		}
+
+		.item-content h4 {
+			font-size: 20px;
+		}
+
+		.item-content p {
+			font-size: 15px;
+		}
+	}
+</style>

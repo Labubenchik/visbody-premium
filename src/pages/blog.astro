@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import MainWrapTL from "@/layouts/MainWrapTL.astro";
+import BlogOld from "@/old/BlogOld";
+---
+
+<Layout>
+	<MainWrapTL>
+		<BlogOld client:only="react" />
+	</MainWrapTL>
+</Layout>

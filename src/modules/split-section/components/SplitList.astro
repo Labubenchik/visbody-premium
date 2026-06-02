@@ -1,0 +1,100 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+interface Props {
+	list: {
+		icon: AstroComponentFactory;
+		title?: string;
+		text?: string;
+	}[];
+}
+
+const { list } = Astro.props;
+---
+
+<ul class="wrap">
+	{
+		list.map(({ icon: Icon, title, text }) => (
+			<li class="item">
+				<div class="icon-wrap">
+					<Icon class="icon" size={24} />
+				</div>
+				<div class="item-content">
+					{title && <h4 class="title">{title}</h4>}
+					{text && <p class="text">{text}</p>}
+				</div>
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.wrap {
+		display: grid;
+		gap: 28px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.item {
+		display: grid;
+		grid-template-columns: 40px minmax(0, 1fr);
+		gap: 18px;
+		align-items: start;
+	}
+
+	.icon-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: rgba(14, 165, 233, 0.18);
+
+		& > :global(svg) {
+			box-sizing: border-box;
+			color: #0ea5e9;
+			stroke-width: 1.5px;
+		}
+	}
+
+	.item-content {
+		padding-top: 2px;
+	}
+
+	.title {
+		margin: 0;
+		color: rgba(255, 255, 255, 0.94);
+		font-size: 0.95rem;
+		font-weight: 800;
+		line-height: 1.35;
+		letter-spacing: 0;
+	}
+
+	.text {
+		margin: 8px 0 0;
+		max-width: 42rem;
+		color: rgba(203, 213, 225, 0.64);
+		font-size: 0.875rem;
+		font-weight: 400;
+		line-height: 1.65;
+	}
+
+	@media (max-width: 560px) {
+		.wrap {
+			gap: 24px;
+		}
+
+		.item {
+			grid-template-columns: 22px minmax(0, 1fr);
+			gap: 14px;
+		}
+
+		.item :global(svg) {
+			width: 22px;
+			height: 22px;
+		}
+	}
+</style>

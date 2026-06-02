@@ -1,0 +1,118 @@
+/* @import "tailwindcss/preflight"; */
+@import "tailwindcss";
+
+@tailwind utilities;
+
+@theme {
+	--color-brand-dark: #020617;
+	--color-brand-deep: #0a192f;
+	--color-brand-accent: #0ea5e9;
+	--color-brand-light: #f8fafc;
+	--color-brand-gray: #94a3b8;
+	--font-sans: var(--font-google-sans), sans-serif;
+}
+
+@layer utilities {
+	.glass-card {
+		background: rgba(15, 23, 42, 0.4);
+		backdrop-filter: blur(24px);
+		-webkit-backdrop-filter: blur(24px);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+		border-radius: 32px;
+	}
+
+	.glass-card-hover {
+		transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+	}
+	.glass-card-hover:hover {
+		background: rgba(15, 23, 42, 0.6);
+		border: 1px solid rgba(14, 165, 233, 0.3);
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+		transform: translateY(-8px);
+	}
+
+	.noise-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		pointer-events: none;
+		z-index: 9999;
+		opacity: 0.04;
+		filter: contrast(150%) brightness(150%);
+		background-image: url("https://grain-y.com/wp-content/uploads/2021/02/Grain-Texture-8.jpg");
+		background-repeat: repeat;
+	}
+
+	.nothing-dot-grid {
+		background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+		background-size: 40px 40px;
+	}
+}
+
+body {
+	background: radial-gradient(circle at 50% 30%, #1e40af 0%, #0a192f 50%, #020617 100%);
+	background-attachment: fixed;
+	color: #ffffff;
+	font-family: var(--font-sans);
+	overflow-x: hidden;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:
+		radial-gradient(circle at 80% 20%, rgba(0, 242, 255, 0.15) 0%, transparent 40%),
+		radial-gradient(circle at 20% 80%, rgba(0, 71, 255, 0.1) 0%, transparent 40%);
+	pointer-events: none;
+	z-index: -1;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-dot {
+	font-family: var(--font-sans);
+	letter-spacing: -0.02em;
+	color: #ffffff;
+}
+
+.nav-bar-gap {
+	margin-top: 81px;
+}
+
+.title-accent {
+	--accent-color-from: #0ea5e9;
+	--accent-color-to: #60a5fa;
+
+	background: linear-gradient(to right, var(--accent-color-from), var(--accent-color-to));
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+.eyebrow {
+	display: inline-block;
+	padding: 7px 16px 5px;
+	border: 1px solid rgba(96, 165, 250, 0.2);
+	border-radius: 9999px;
+	background: rgba(59, 130, 246, 0.1);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	color: var(--color-brand-accent);
+	font-family: var(--font-sans);
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}

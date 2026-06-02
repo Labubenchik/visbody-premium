@@ -1,0 +1,106 @@
+---
+type Props = {
+	title?: string;
+	label?: string;
+	caption?: string;
+};
+
+const {
+	title = "3D-анализ осанки в реальном времени",
+	label = "3D скелетная детекция + BIA",
+	caption = "10 параметров осанки + 14 обхватов тела + состав тела",
+} = Astro.props as Props;
+---
+
+<aside class="visual" aria-label="Технологическая схема Visbody M30">
+	<h3>{title}</h3>
+	<div class="scan-panel">
+		<span class="label">{label}</span>
+	</div>
+	<p>{caption}</p>
+</aside>
+
+<style>
+	.visual {
+		width: min(100%, 480px);
+		margin: 0 auto;
+		padding: 28px;
+		border: 1px solid rgba(14, 165, 233, 0.16);
+		border-radius: 24px;
+		background:
+			linear-gradient(180deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.4)),
+			radial-gradient(circle at 18% 8%, rgba(14, 165, 233, 0.13), transparent 56%);
+		box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+		box-sizing: border-box;
+		backdrop-filter: blur(18px);
+		-webkit-backdrop-filter: blur(18px);
+
+		& h3 {
+			margin: 0 0 22px;
+			color: var(--color-brand-accent);
+			font-family: var(--font-sans);
+			font-size: 21px;
+			font-weight: 800;
+			line-height: 1.22;
+			letter-spacing: -0.025em;
+		}
+
+		& p {
+			margin: 20px 0 0;
+			color: rgba(203, 213, 225, 0.72);
+			font-family: var(--font-sans);
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 1.45;
+			letter-spacing: -0.01em;
+			text-align: center;
+		}
+	}
+
+	.scan-panel {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 220px;
+		overflow: hidden;
+		border: 1px dashed rgba(14, 165, 233, 0.28);
+		border-radius: 18px;
+		background:
+			linear-gradient(rgba(14, 165, 233, 0.06) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(14, 165, 233, 0.06) 1px, transparent 1px), rgba(2, 6, 23, 0.34);
+		background-size: 28px 28px;
+	}
+
+	.label {
+		position: absolute;
+		right: 18px;
+		bottom: 18px;
+		left: 18px;
+		padding: 12px 14px;
+		border: 1px solid rgba(255, 255, 255, 0.07);
+		border-radius: 14px;
+		background: rgba(2, 6, 23, 0.54);
+		color: rgba(203, 213, 225, 0.78);
+		font-family: var(--font-sans);
+		font-size: 13px;
+		font-weight: 700;
+		line-height: 1.35;
+		text-align: center;
+	}
+
+	@media (max-width: 560px) {
+		.visual {
+			padding: 22px;
+			border-radius: 20px;
+
+			& h3 {
+				font-size: 19px;
+			}
+		}
+
+		.scan-panel {
+			min-height: 200px;
+		}
+	}
+</style>

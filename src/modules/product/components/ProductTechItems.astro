@@ -1,0 +1,88 @@
+---
+type Props = {
+	items?: {
+		title: string;
+		description: string;
+	}[];
+};
+
+const {
+	items = [
+		{
+			title: "Постуральный анализ",
+			description:
+				"Автоматическое выявление дисбалансов осанки: наклон головы, положение плеч, таза и коленей. Идеально для реабилитации и коррекции тренировок.",
+		},
+	],
+} = Astro.props as Props;
+---
+
+<div class="tech-list">
+	{
+		items.map(({ title, description }) => (
+			<div class="tech-item">
+				<h4 set:html={title} />
+				<p set:html={description} />
+			</div>
+		))
+	}
+</div>
+
+<style>
+	.tech-list {
+		display: grid;
+		gap: 16px;
+	}
+
+	.tech-item {
+		position: relative;
+		padding: 24px 26px;
+		border: 1px solid rgba(255, 255, 255, 0.07);
+		border-radius: 24px;
+		background: rgba(15, 23, 42, 0.42);
+		box-shadow: 0 18px 54px rgba(0, 0, 0, 0.18);
+		backdrop-filter: blur(18px);
+		-webkit-backdrop-filter: blur(18px);
+
+		&::before {
+			position: absolute;
+			top: 24px;
+			left: 0;
+			width: 3px;
+			height: 34px;
+			border-radius: 999px;
+			background: var(--color-brand-accent);
+			content: "";
+		}
+
+		& h4 {
+			margin: 0 0 10px;
+			color: #ffffff;
+			font-family: var(--font-sans);
+			font-size: 20px;
+			font-weight: 800;
+			line-height: 1.18;
+			letter-spacing: -0.025em;
+		}
+
+		& p {
+			margin: 0;
+			color: rgba(203, 213, 225, 0.78);
+			font-family: var(--font-sans);
+			font-size: 15px;
+			line-height: 1.65;
+			letter-spacing: -0.01em;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.tech-item {
+			padding: 22px 22px 22px 24px;
+			border-radius: 20px;
+
+			& h4 {
+				font-size: 19px;
+			}
+		}
+	}
+</style>

@@ -1,0 +1,243 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import ProductCase from "@modules/product/ProductCase.astro";
+import ProductCompare from "@modules/product/ProductCompare.astro";
+import ProductFeatures from "@modules/product/ProductFeatures.astro";
+import ProductHead from "@modules/product/ProductHead.astro";
+import ProductLeadSection from "@modules/product/ProductLeadSection.astro";
+import ProductList from "@modules/product/ProductList.astro";
+import ProductSpecs from "@modules/product/ProductSpecs.astro";
+import ProductWellnessMockup from "@modules/product/components/ProductWellnessMockup.astro";
+import SplitSection from "@modules/split-section/SplitSection.astro";
+import SplitContent from "@modules/split-section/components/SplitContent.astro";
+import SplitList from "@modules/split-section/components/SplitList.astro";
+
+import {
+	Activity,
+	BrainCircuit,
+	Calculator,
+	FileDown,
+	HeartPulse,
+	History,
+	Megaphone,
+	Sparkles,
+	Stethoscope,
+} from "@lucide/astro";
+---
+
+<Layout>
+	<ProductHead
+		primaryAction={{ label: "Запросить цену", href: "#lead-form", id: "priceBtnM60" }}
+		secondaryAction={{ label: "Узнать технологии", href: "#tech", withArrow: true }}>
+		<Fragment slot="eyebrow">Флагманское ИИ-решение</Fragment>
+		<Fragment slot="title">
+			Visbody M60 — <span class="title-accent">интеллектуальный 3D-сканер</span> нового поколения
+		</Fragment>
+		<Fragment slot="description">
+			Для премиум фитнес-клубов и медицинских центров. Экспертный анализ состава тела, 3D-моделирование и
+			ИИ-прогнозирование с медицинской точностью.
+		</Fragment>
+	</ProductHead>
+
+	<ProductFeatures
+		features={[
+			{
+				title: "Медицинская точность",
+				description:
+					"8-электродная многочастотная BIA (5 частот: 5, 50, 100, 250, 500 кГц) с сегментарным анализом рук, ног и торса. Точность, сопоставимая с DEXA-сканерами.",
+			},
+			{
+				title: "3D-сканирование за секунды",
+				description:
+					"Полный цикл сканирования — менее 40 секунд. 14 автоматических обхватов и точная 3D-модель тела без участия тренера.",
+			},
+			{
+				title: "ИИ-аналитика + прогнозирование",
+				description:
+					"DeepSeek AI генерирует персонализированные рекомендации. Функция 3D Body Shape Prediction визуализирует изменения тела в будущем.",
+			},
+		]}>
+		<Fragment slot="title">Главные <span class="title-accent">преимущества</span> M60</Fragment>
+		<Fragment slot="subtitle">Медицинская точность, скорость и интеллектуальная аналитика</Fragment>
+	</ProductFeatures>
+
+	<ProductSpecs
+		specs={[
+			{ label: "Цвет устройства", value: "Чёрный / Белый" },
+			{ label: "Габариты центральной колонны (В × Ш × Г)", value: "1681 × 400 × 685,3 мм" },
+			{ label: "Габариты напольного коврика (Д × Ш)", value: "1830 × 680 мм" },
+			{ label: "Поворотный круг (диаметр × высота)", value: "600 × 74 мм" },
+			{ label: "Вес устройства (колонна + основание)", value: "53 кг" },
+			{ label: "Вес поворотного круга", value: "10 кг" },
+			{ label: "Вес напольного коврика", value: "3 кг" },
+			{ label: "Максимальный вес пользователя (основной)", value: "250 кг" },
+			{ label: "Максимальная нагрузка на поворотный круг", value: "180 кг" },
+			{ label: "Максимальный рост пользователя", value: "200 см / до 2,05 м" },
+			{ label: "Возрастной диапазон", value: "от 5 до 99 лет" },
+			{ label: "Диапазон рабочих температур", value: "10°C ~ 40°C" },
+			{ label: "Электропитание", value: "220 В / 50 Гц" },
+			{ label: "Основной сенсор", value: "3D Depth Vision Sensor" },
+			{ label: "Формат отчётов", value: "Печать A4, мобильная версия H5, веб-панель управления" },
+			{
+				label: "Хранение данных",
+				value: "Автоматическое облачное хранение, удалённый доступ, история изменений, резервное копирование",
+			},
+		]}>
+		<Fragment slot="title">Технические <span class="title-accent">характеристики</span></Fragment>
+		<Fragment slot="subtitle">Официальные спецификации Visbody M60</Fragment>
+	</ProductSpecs>
+
+	<ProductList
+		items={[
+			{
+				title: "Фитнес",
+				description: "Оценка прогресса, мотивация клиентов, продажа персональных тренировок",
+				icon: Activity,
+			},
+			{
+				title: "Медицина",
+				description: "Диагностика состава тела, риск-анализ висцерального жира",
+				icon: HeartPulse,
+			},
+			{
+				title: "Реабилитация",
+				description: "Мониторинг восстановления мышечной массы и баланса жидкостей",
+				icon: Sparkles,
+			},
+			{
+				title: "Эстетика",
+				description: "3D-моделирование тела до/после для косметологических программ",
+				icon: Stethoscope,
+			},
+		]}>
+		<Fragment slot="title">Для каких <span class="title-accent">задач</span> <br />подходит M60</Fragment>
+		<Fragment slot="subtitle">Универсальное решение для профессионалов</Fragment>
+	</ProductList>
+
+	<ProductFeatures
+		features={[
+			{
+				title: "Владельцу клуба",
+				description:
+					"Рост выручки за счёт премиум-услуг, повышение LTV клиента, автоматизация продаж через отчёты.",
+			},
+			{
+				title: "Тренеру",
+				description:
+					'Продажи персональных тренировок с доказательным прогрессом. 3D-сравнения "до/после" — лучший аргумент.',
+			},
+			{
+				title: "Клиенту",
+				description:
+					"Визуальная мотивация, понятные отчёты и прогноз изменений тела. Высокая вовлечённость в процесс.",
+			},
+		]}>
+		<Fragment slot="title">Кому <span class="title-accent">выгодно</span></Fragment>
+		<Fragment slot="subtitle">Visbody M60 — инвестиция, которая окупается</Fragment>
+	</ProductFeatures>
+
+	<ProductCase
+		stats={[
+			{ value: "+498%", label: "ROI за 12 месяцев" },
+			{ value: "-49%", label: "снижение затрат на привлечение клиентов" },
+		]}>
+		<Fragment slot="title">Реальные <span class="title-accent">результаты</span> клиентов</Fragment>
+		<Fragment slot="description">
+			По данным внедрения Visbody M60 в сети фитнес-клубов из 15+ объектов. Окупаемость оборудования — от 3 до 6
+			месяцев.
+		</Fragment>
+	</ProductCase>
+
+	<ProductCompare
+		columns={{ parameter: "Параметр", first: "Visbody M60", second: "Visbody S30" }}
+		rows={[
+			{
+				parameter: "Измерение роста",
+				first: { value: "Ручной ввод / внешний ростомер" },
+				second: { value: "Встроенный лазерный дальномер ±0.5 см" },
+			},
+			{
+				parameter: "Полный цикл сканирования",
+				first: { value: "40 секунд", highlight: true },
+				second: { value: "45 секунд (с измерением роста)" },
+			},
+			{
+				parameter: "Метод анализа",
+				first: { value: "5-сегментарный BIA + 3D Depth Vision", highlight: true },
+				second: { value: "8-электродный BIA + оптический 3D-контур" },
+			},
+			{
+				parameter: "Автоматические обхваты",
+				first: { value: "14 анатомических обхватов", highlight: true },
+				second: { value: "12 ключевых обхватов" },
+			},
+			{
+				parameter: "Функция 3d body prediction",
+				first: { value: "Расширенное прогнозирование формы тела", highlight: true },
+				second: { value: "Базовое прогнозирование (до/после)" },
+			},
+			{
+				parameter: "Подогрев платформы",
+				first: { value: "3-уровневый подогрев", highlight: true },
+				second: { value: "Стандартная платформа" },
+			},
+			{
+				parameter: "Ценовой сегмент",
+				first: { value: "Премиум / экспертный уровень", highlight: true },
+				second: { value: "Доступный / средний сегмент" },
+			},
+		]}>
+		<Fragment slot="title">
+			Сравнение: <br />
+			<span class="title-accent">Visbody M60</span> vs <span class="title-accent">Visbody S30</span>
+		</Fragment>
+		<Fragment slot="subtitle">
+			Поможем выбрать оптимальную модель. <span class="title-accent">Подсвеченные позиции</span> — преимущества M60.
+		</Fragment>
+	</ProductCompare>
+
+	<SplitSection>
+		<ProductWellnessMockup slot="left" />
+		<SplitContent slot="right">
+			<Fragment slot="title">Экосистема <span class="title-accent">WellnessHub</span></Fragment>
+			<Fragment slot="text">
+				Все данные сканирования автоматически загружаются в защищенное облако. Интеграция с CRM фитнес-клуба и
+				мобильным приложением клиента.
+			</Fragment>
+			<SplitList
+				slot="content"
+				list={[
+					{
+						icon: Calculator,
+						title: "Автоматический расчет 48+ метрик: процент жира, мышечная масса, висцеральный жир, вода.",
+					},
+					{
+						icon: BrainCircuit,
+						title: "Интерактивные отчеты с рекомендациями на базе языковой модели DeepSeek.",
+					},
+					{
+						icon: Megaphone,
+						title: 'Маркетинговые инструменты: генерация лидов, сравнение "до/после" и автоматическая рассылка.',
+					},
+					{
+						icon: History,
+						title: "Удалённый доступ для тренеров и администраторов к истории сканирований.",
+					},
+					{
+						icon: FileDown,
+						title: "Экспорт данных в форматах PDF, CSV для интеграции с внешними системами.",
+					},
+				]}
+			/>
+		</SplitContent>
+	</SplitSection>
+
+	<ProductLeadSection>
+		<Fragment slot="title">Оставьте заявку для получения коммерческого предложения</Fragment>
+		<Fragment slot="text">
+			Заполните форму, и наш специалист свяжется с вами для расчёта стоимости и подготовки индивидуального
+			предложения.
+		</Fragment>
+	</ProductLeadSection>
+</Layout>
