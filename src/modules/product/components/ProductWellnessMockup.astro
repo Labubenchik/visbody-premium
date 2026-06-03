@@ -24,7 +24,7 @@ const {
 			{
 				bars.map((height) => (
 					<span class="bar" style={`--bar-height: ${height}px`}>
-						<span class="bar-fill"></span>
+						<span class="bar-fill" />
 					</span>
 				))
 			}
@@ -46,7 +46,6 @@ const {
 		box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
 		box-sizing: border-box;
 		backdrop-filter: blur(18px);
-		-webkit-backdrop-filter: blur(18px);
 	}
 
 	.widget {
