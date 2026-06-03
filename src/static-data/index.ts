@@ -31,7 +31,7 @@ export const ROUTES = {
 				href: "/catalog/visbody-s30",
 			},
 			a600: {
-				label: "Creator A600",
+				label: "Creator 600",
 				href: "/catalog/creator-a600",
 			},
 		},

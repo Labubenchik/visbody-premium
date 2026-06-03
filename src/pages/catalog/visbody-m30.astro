@@ -25,8 +25,8 @@ import m30Image from "@modules/home/hero-section/assets/m-30.webp";
 			Visbody M30&nbsp;&mdash; <span class="title-accent">3D-анализатор тела</span> с&nbsp;оценкой осанки
 		</Fragment>
 		<Fragment slot="description">
-			Интеллектуальный анализ состава тела, 14&nbsp;автоматических измерений, оценка осанки и&nbsp;прогресс
-			в&nbsp;3D-моделях. Для фитнеса, реабилитации и&nbsp;wellness-центров.
+			3D-снимок тела, оценка осанки, автоматические измерения и визуализация прогресса в&nbsp;3D-моделях. Для
+			фитнеса, реабилитации и&nbsp;wellness-центров.
 		</Fragment>
 	</ProductHead>
 
@@ -35,12 +35,12 @@ import m30Image from "@modules/home/hero-section/assets/m-30.webp";
 			{
 				title: "3D-аватар и обхваты",
 				description:
-					"14&nbsp;автоматических измерений (шея, грудь, талия, бёдра, руки, икры) с&nbsp;точностью до&nbsp;миллиметра. Наглядные 3D-модели до&nbsp;и&nbsp;после.",
+					"Автоматические измерения тела и наглядные 3D-модели до и после помогают отслеживать визуальную динамику клиента.",
 			},
 			{
 				title: "Интеллектуальная оценка осанки",
 				description:
-					"10&nbsp;ключевых параметров: наклон головы, круглые плечи, таз вперёд/назад, колени, тип ног (X/O). 3D&nbsp;детекция скелетных точек.",
+					"Оценка 9 параметров осанки: наклон головы, положение плеч, таза и коленей, тип ног (X/O). 3D-детекция скелетных точек.",
 			},
 			{
 				title: "Динамика и отчёты",
@@ -57,10 +57,10 @@ import m30Image from "@modules/home/hero-section/assets/m-30.webp";
 
 	<SplitSection>
 		<SplitContent slot="left">
-			<Fragment slot="title">Гибридная технология: <br /><span class="title-accent">3D + BIA</span></Fragment>
+			<Fragment slot="title">Технология: <br /><span class="title-accent">3D-анализ осанки</span></Fragment>
 			<Fragment slot="text">
-				Visbody M30 объединяет глубинные 3D-сенсоры Intel® RealSense™ и многочастотный биоимпеданс для полной
-				картины здоровья.
+				Visbody M30 использует 3D Depth Vision Sensor для снимка тела, оценки осанки и визуального контроля
+				прогресса.
 			</Fragment>
 			<ProductTechItems
 				slot="content"
@@ -71,9 +71,9 @@ import m30Image from "@modules/home/hero-section/assets/m-30.webp";
 							"Автоматическое выявление дисбалансов осанки: наклон головы, положение плеч, таза и коленей. Идеально для реабилитации и коррекции тренировок.",
 					},
 					{
-						title: "Точный BIA анализ",
+						title: "Визуальный контроль прогресса",
 						description:
-							"5-частотный биоимпеданс: процент жира, мышечная масса, висцеральный жир, уровень воды и метаболизм.",
+							"3D-снимки и автоматические измерения помогают отслеживать изменения фигуры без анализа состава тела.",
 					},
 				]}
 			/>
@@ -81,24 +81,24 @@ import m30Image from "@modules/home/hero-section/assets/m-30.webp";
 		<ProductTechVisual
 			slot="right"
 			title="3D-анализ осанки в реальном времени"
-			label="3D скелетная детекция + BIA"
-			caption="10 параметров осанки + 14 обхватов тела + состав тела"
+			label="3D скелетная детекция"
+			caption="9 параметров осанки + 3D-снимок тела + визуальная динамика"
 		/>
 	</SplitSection>
 
 	<ProductSpecs
 		specs={[
-			{ label: "Питание", value: "220V / 50Hz" },
-			{ label: "Потребляемая мощность", value: "120W" },
+			{ label: "Вход устройства", value: "24 В / 5 А" },
+			{ label: "Потребляемая мощность", value: "120 Вт через адаптер" },
 			{ label: "Габариты (зеркало)", value: "1860 мм (В) × 550 мм (Ш) × 340 мм (Г)" },
 			{ label: "Поворотная платформа", value: "⌀450 мм, высота 92 мм" },
 			{ label: "Напольный коврик", value: "1630 × 600 мм" },
 			{ label: "Вес нетто (зеркало)", value: "47 кг" },
-			{ label: "Вес нетто (платформа)", value: "7.5 кг" },
+			{ label: "Вес нетто (платформа)", value: "7 кг" },
 			{ label: "Максимальный вес пользователя", value: "180 кг" },
 			{ label: "Максимальный рост", value: "200 см" },
 			{ label: "Цветовые решения", value: "Белый / Чёрный (M30 Black edition)" },
-			{ label: "Основной сенсор", value: "3D Depth Vision Sensor (Intel RealSense)" },
+			{ label: "Основной сенсор", value: "3D Depth Vision Sensor" },
 			{ label: "Формат отчётов", value: "Печать A4, мобильная версия H5, веб-панель" },
 			{ label: "Хранение данных", value: "Автоматическое облачное хранение, история сканирований" },
 		]}>
@@ -111,22 +111,22 @@ import m30Image from "@modules/home/hero-section/assets/m-30.webp";
 		rows={[
 			{
 				parameter: "3D сканирование тела",
-				first: { value: "3D/4D аватар" },
+				first: { value: "3D-аватар" },
 				second: { value: "Full HD 3D модель" },
 			},
 			{
 				parameter: "Измерение состава тела (BIA)",
-				first: { value: "BIA + 3D (5 частот)" },
+				first: { value: "Нет" },
 				second: { value: "BIA + 3D (8 электродов)" },
 			},
 			{
 				parameter: "Количество обхватов тела",
-				first: { value: "14 (полный набор)", highlight: true },
+				first: { value: "Автоматические измерения тела", highlight: true },
 				second: { value: "14 (полный набор)" },
 			},
 			{
 				parameter: "Оценка осанки (постуральный анализ)",
-				first: { value: "10 параметров" },
+				first: { value: "9 параметров" },
 				second: { value: "До 14 параметров + детальная биомеханика" },
 			},
 			{

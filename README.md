@@ -263,10 +263,12 @@ src/static-data/index.ts
 
 ```ts
 export const ROUTES = {
+	...
 	about: {
 		label: "О компании",
 		href: "/about",
 	},
+	...
 } as const;
 ```
 
@@ -286,6 +288,7 @@ import { ROUTES } from "@/static-data";
 
 ```ts
 export const ROUTES = {
+	...
 	services: {
 		label: "Услуги",
 		href: "/services",
@@ -296,6 +299,7 @@ export const ROUTES = {
 			},
 		},
 	},
+	...
 } as const;
 ```
 

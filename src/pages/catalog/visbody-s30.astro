@@ -28,17 +28,17 @@ import { BrainCircuit, Calculator, FileDown, Megaphone, History } from "@lucide/
 			Visbody S30&nbsp;&mdash; <span class="title-accent">3D-анализатор тела</span> с&nbsp;измерением роста
 		</Fragment>
 		<Fragment slot="description">
-			Первый в&nbsp;мире гибридный 3D-сканер, объединяющий многочастотный BIA и&nbsp;точное лазерное измерение
-			роста. Идеальный баланс между экспертной аналитикой и&nbsp;доступностью для бизнеса.
+			Гибридный 3D-сканер, объединяющий многочастотный BIA и&nbsp;3D Depth Vision Sensor. Идеальный баланс
+			между экспертной аналитикой и&nbsp;доступностью для бизнеса.
 		</Fragment>
 	</ProductHead>
 
 	<ProductFeatures
 		features={[
 			{
-				title: "Лазерное измерение роста",
+				title: "Расчёт роста по 3D-скану",
 				description:
-					"Встроенный лазерный дальномер с точностью до 0.5 см. Рост автоматически учитывается при расчете ИМТ, композиции тела и сегментарном анализе — без ручного ввода и ошибок персонала.",
+					"Рост рассчитывается по данным 3D Depth Vision Sensor и автоматически учитывается при расчёте ИМТ, композиции тела и сегментарном анализе — без ручного ввода и ошибок персонала.",
 			},
 			{
 				title: "Гибридный BIA + 3D",
@@ -60,10 +60,10 @@ import { BrainCircuit, Calculator, FileDown, Megaphone, History } from "@lucide/
 
 	<SplitSection>
 		<SplitContent slot="left">
-			<Fragment slot="title">Гибридная технология: <br /><span class="title-accent">рост + BIA</span></Fragment>
+			<Fragment slot="title">Гибридная технология: <br /><span class="title-accent">3D + BIA</span></Fragment>
 			<Fragment slot="text">
-				Visbody S30&nbsp;&mdash; первый в&nbsp;мире анализатор состава тела с&nbsp;интегрированным лазерным
-				измерением роста и&nbsp;многочастотным биоимпедансом.
+				Visbody S30 сочетает 3D-сканирование тела, расчёт роста по depth-сенсору и многочастотный
+				биоимпедансный анализ.
 			</Fragment>
 			<ProductTechItems
 				slot="content"
@@ -71,7 +71,7 @@ import { BrainCircuit, Calculator, FileDown, Megaphone, History } from "@lucide/
 					{
 						title: "Автоматическая антропометрия",
 						description:
-							"Лазерный дальномер исключает человеческий фактор. Рост фиксируется за 2 секунды, после чего система автоматически рассчитывает корректные целевые зоны и нормативы.",
+							"3D Depth Vision Sensor снижает влияние человеческого фактора. Рост и антропометрические параметры используются для расчёта целевых зон и нормативов.",
 					},
 					{
 						title: "Идеально для центров похудения",
@@ -84,7 +84,7 @@ import { BrainCircuit, Calculator, FileDown, Megaphone, History } from "@lucide/
 		<ProductTechVisual
 			slot="right"
 			title="Преимущество гибридного подхода"
-			label="Интеграция лазерного дальномера + 3D-сенсор"
+			label="Интеграция BIA + 3D Depth Vision Sensor"
 			caption="Автоматический расчет ИМТ, мышечной массы и процента жира с учетом реального роста"
 		/>
 	</SplitSection>
@@ -143,28 +143,28 @@ import { BrainCircuit, Calculator, FileDown, Megaphone, History } from "@lucide/
 		rows={[
 			{
 				parameter: "Измерение роста",
-				first: { value: "Встроенный лазерный дальномер ±0.5 см", highlight: true },
-				second: { value: "Ручной ввод или внешний ростомер" },
+				first: { value: "Расчёт по 3D-скану, диапазон до 200 см" },
+				second: { value: "Расчёт по 3D-скану, диапазон 130-200 см" },
 			},
 			{
 				parameter: "Полный цикл сканирования",
-				first: { value: "45 секунд (с измерением роста)" },
-				second: { value: "40 секунд" },
+				first: { value: "Около 32 секунд" },
+				second: { value: "Около 30 секунд" },
 			},
 			{
 				parameter: "Метод анализа",
-				first: { value: "8-электродный BIA + оптический 3D-контур + лазерный ростомер", highlight: true },
-				second: { value: "5-сегментарный BIA + 3D Depth Vision" },
+				first: { value: "DSM-BIA + 3D Depth Vision" },
+				second: { value: "8-электродный многочастотный BIA + 3D Depth Vision", highlight: true },
 			},
 			{
 				parameter: "Частоты BIA",
-				first: { value: "5 частот (5, 50, 100, 250, 500 кГц)" },
+				first: { value: "4 частоты (5, 50, 250, 500 кГц)" },
 				second: { value: "4 частоты (5, 50, 250, 500 кГц)" },
 			},
 			{
 				parameter: "Автоматические обхваты",
-				first: { value: "12 ключевых обхватов (шея, плечи, грудь, талия, бедра и др.)" },
-				second: { value: "14 анатомических обхватов" },
+				first: { value: "9 обхватов" },
+				second: { value: "14 обхватов", highlight: true },
 			},
 			{
 				parameter: "Функция 3D Body Prediction",
@@ -210,11 +210,11 @@ import { BrainCircuit, Calculator, FileDown, Megaphone, History } from "@lucide/
 				list={[
 					{
 						icon: Calculator,
-						title: "Автоматический расчет 28+ метрик: процент жира, мышечная масса, висцеральный жир, вода.",
+						title: "Автоматический расчет ключевых метрик: процент жира, мышечная масса, висцеральный жир, вода.",
 					},
 					{
 						icon: BrainCircuit,
-						title: "Интерактивные отчеты с рекомендациями на базе языковой модели DeepSeek.",
+						title: "Интерактивные отчеты с рекомендациями на базе Kuafu AI 3.5.",
 					},
 					{
 						icon: Megaphone,

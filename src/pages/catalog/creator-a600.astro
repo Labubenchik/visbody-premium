@@ -21,14 +21,14 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 		primaryAction={{ label: "Запросить цену", href: "#lead-form", id: "priceBtnA600" }}
 		secondaryAction={{ label: "Характеристики", href: "#tech", withArrow: true }}
 		imageSrc={a600Image.src}
-		imageAlt="Visbody Creator A600">
+		imageAlt="Visbody Creator 600">
 		<Fragment slot="eyebrow">Интеллектуальная беговая дорожка</Fragment>
 		<Fragment slot="title">
-			Visbody <span class="title-accent">Creator A600</span>
+			Visbody <br /><span class="title-accent">Creator 600</span>
 		</Fragment>
 		<Fragment slot="description">
-			Единственная в мире беговая дорожка с 3D-анализом техники бега в реальном времени. Разработана дизайнером
-			Porsche для профессиональных спортсменов и реабилитационных центров.
+			Первая в мире беговая дорожка с технологией ViScan для 3D-анализа техники бега в реальном времени.
+			Разработана дизайнером Porsche для профессиональных спортсменов и реабилитационных центров.
 		</Fragment>
 	</ProductHead>
 
@@ -37,12 +37,12 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 			{
 				title: "ViScan Motion Capture",
 				description:
-					"Запатентованная технология захвата движений в реальном времени. 4D-камера глубины отслеживает каждый шаг и формирует точную 3D-модель бегуна.",
+					"Первая в мире технология ViScan для захвата движений в реальном времени. 3D-камера отслеживает каждый шаг и формирует точную модель бегуна.",
 			},
 			{
-				title: "23 AI-анализа в минуту",
+				title: "Оценка техники бега с 3D-визуализацией",
 				description:
-					"Искусственный интеллект обрабатывает 23 ключевых параметра техники бега каждые 60 секунд, предоставляя объективную оценку прогресса.",
+					"Система анализирует нагрузку на суставы, центр тяжести, положение коленей, вертикальные колебания, угол сгибания колена и каденс.",
 			},
 			{
 				title: "Дизайн от Porsche",
@@ -50,7 +50,7 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 					"Разработана дизайнером студии Milon, создавшей Porsche 911. Эргономика премиум-класса сочетается с максимальной функциональностью.",
 			},
 		]}>
-		<Fragment slot="title">Ключевые <span class="title-accent">преимущества</span> Creator A600</Fragment>
+		<Fragment slot="title">Ключевые <span class="title-accent">преимущества</span> Creator 600</Fragment>
 		<Fragment slot="subtitle">
 			Инновационная система, объединяющая профессиональную беговую дорожку с передовой технологией анализа
 			движений
@@ -62,15 +62,18 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 			{ label: "Габариты (собранная)", value: "2564,2 × 1024 × 2289,9 мм" },
 			{ label: "Площадь беговой ленты", value: "580 × 1620 мм" },
 			{ label: "Вес оборудования", value: "360 кг" },
-			{ label: "Максимальный вес пользователя", value: "180 кг" },
+			{ label: "Максимальный вес пользователя", value: "350 кг" },
 			{ label: "Диапазон скорости", value: "0,5 — 20 км/ч" },
 			{ label: "Диапазон наклона", value: "0 — 18%" },
 			{ label: "Дисплей", value: "50-дюймовый 4K" },
-			{ label: "Система безопасности", value: "AI Dual Anti-Fall Design" },
-			{ label: "Смазка", value: "Автоматическая умная система смазки" },
+			{ label: "Система безопасности", value: "Невидимая ИИ-страховка (AI Safety Tether)" },
+			{
+				label: "Обслуживание",
+				value: "Конструкция без регулярного обслуживания; смазка выполняется вручную по регламенту",
+			},
 		]}>
 		<Fragment slot="title">Технические <span class="title-accent">характеристики</span></Fragment>
-		<Fragment slot="subtitle">Официальные спецификации Visbody Creator A600</Fragment>
+		<Fragment slot="subtitle">Официальные спецификации Visbody Creator 600</Fragment>
 	</ProductSpecs>
 
 	<ProductRunAnalysis
@@ -96,8 +99,8 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 				description: "Выявление асимметрии и дисбаланса",
 			},
 			{
-				title: "23 AI-анализа в реальном времени",
-				description: "Каждую минуту система обрабатывает 23 биомеханических параметра",
+				title: "Оценка техники бега с 3D-визуализацией",
+				description: "Система отслеживает ключевые элементы биомеханики движения",
 			},
 		]}
 		metrics={[
@@ -111,7 +114,7 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 			{ label: "Нагрузка правый сустав", value: 38 },
 			{ label: "Эффективность бега", value: 86 },
 		]}
-		footer="Sampling rate: 60Hz | Latency: <50ms | AI confidence: 98.3%">
+		footer="3D camera | Vision sensors | Running technique assessment">
 		<Fragment slot="title">3D-анализ <br /><span class="title-accent">техники бега</span></Fragment>
 		<Fragment slot="text">
 			Система ViScan в реальном времени отслеживает биомеханику бега и предоставляет детальные отчёты после каждой
@@ -135,12 +138,11 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 			},
 			{
 				title: "Премиум фитнес-клубы",
-				description:
-					"Уникальное конкурентное преимущество — единственная в городе беговая дорожка с AI-анализом техники.",
+				description: "Уникальное конкурентное преимущество — беговая дорожка с AI-анализом техники.",
 				icon: Dumbbell,
 			},
 		]}>
-		<Fragment slot="title">Для кого <span class="title-accent">идеально</span> подходит A600</Fragment>
+		<Fragment slot="title">Для кого <span class="title-accent">идеально</span> подходит Creator 600</Fragment>
 		<Fragment slot="subtitle">Профессиональное оборудование для разных категорий пользователей</Fragment>
 	</ProductList>
 
@@ -163,7 +165,7 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 			},
 		]}>
 		<Fragment slot="title"><span class="title-accent">Кому</span> выгодно</Fragment>
-		<Fragment slot="subtitle">Creator A600 — инвестиция в здоровье и результаты</Fragment>
+		<Fragment slot="subtitle">Creator 600 — инвестиция в здоровье и результаты</Fragment>
 	</ProductFeatures>
 
 	<SplitSection>
@@ -187,7 +189,7 @@ import { ChartNoAxesCombined, Dumbbell, FileText, HeartPulse, Megaphone, Route, 
 					},
 					{
 						icon: ChartNoAxesCombined,
-						title: "Динамика прогресса по всем 23 параметрам",
+						title: "Динамика прогресса по ключевым параметрам техники бега",
 					},
 					{
 						icon: Route,
